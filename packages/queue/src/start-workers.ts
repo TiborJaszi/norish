@@ -6,7 +6,7 @@
  * Only scheduled-tasks runs continuously for cron jobs.
  */
 
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { startAllergyDetectionWorker } from "@norish/queue/allergy-detection/worker";
 import { startAutoCategorizationWorker } from "@norish/queue/auto-categorization/worker";
 import { startAutoTaggingWorker } from "@norish/queue/auto-tagging/worker";

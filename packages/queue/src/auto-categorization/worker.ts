@@ -3,7 +3,7 @@ import type { AutoCategorizationJobData } from "@norish/queue/contracts/job-type
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { categorizeRecipe } from "@norish/api/ai/auto-categorizer";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import { getRecipeFull, updateRecipeCategories } from "@norish/db";
 import { getBullClient } from "@norish/queue/redis/bullmq";

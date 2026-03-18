@@ -8,8 +8,8 @@
 import fs from "fs/promises";
 
 import { decode } from "html-entities";
-import { convertToMp4, saveVideoFile } from "@norish/api/downloader";
-import { parserLogger } from "@norish/api/logger";
+import { convertToMp4, saveVideoFile } from "@norish/shared-server/media/storage";
+import { parserLogger } from "@norish/shared-server/logger";
 import { downloadVideo, getFfmpegPath, getVideoMetadata } from "@norish/api/video/yt-dlp";
 
 const log = parserLogger.child({ module: "videos" });

@@ -1,6 +1,6 @@
 {
   "name": "@norish/queue",
-  "version": "0.17.0-beta",
+  "version": "0.17.3-beta",
   "private": true,
   "type": "module",
   "exports": {
@@ -22,6 +22,7 @@
     "@norish/config": "workspace:*",
     "@norish/db": "workspace:*",
     "@norish/shared": "workspace:*",
+    "@norish/shared-server": "workspace:*",
     "bullmq": "catalog:",
     "date-fns": "catalog:",
     "drizzle-orm": "catalog:",

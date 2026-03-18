@@ -11,7 +11,7 @@ import type {
   ImageImportJobData,
 } from "@norish/queue/contracts/job-types";
 
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 
 import { isJobInQueue } from "../helpers";
 

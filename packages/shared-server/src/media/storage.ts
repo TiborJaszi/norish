@@ -680,9 +680,125 @@ export interface ConvertToMp4Result {
   method: "none" | "remux" | "transcode" | "original";
 }
 
+interface VideoCodecInfo {
+  videoCodec: string | null;
+  audioCodec: string | null;
+}
+
+function normalizeCodecName(codec: string | null | undefined): string | null {
+  if (!codec) return null;
+
+  return codec.trim().toLowerCase();
+}
+
+/**
+ * Browser-safe MP4 profile:
+ * Video: H.264/AVC
+ * Audio: AAC/MP3 (or no audio)
+ */
+export function isWebPlayableMp4CodecPair(
+  videoCodec: string | null | undefined,
+  audioCodec: string | null | undefined
+): boolean {
+  const normalizedVideo = normalizeCodecName(videoCodec);
+
+  if (!normalizedVideo) return false;
+
+  const isVideoCompatible =
+    normalizedVideo === "h264" || normalizedVideo === "avc" || normalizedVideo.startsWith("avc1");
+
+  if (!isVideoCompatible) return false;
+
+  const normalizedAudio = normalizeCodecName(audioCodec);
+
+  if (!normalizedAudio) return true;
+
+  return (
+    normalizedAudio === "aac" || normalizedAudio === "mp3" || normalizedAudio.startsWith("mp4a")
+  );
+}
+
+async function resolveFfprobePath(ffmpegPath: string): Promise<string> {
+  const ffprobeBinary = process.platform === "win32" ? "ffprobe.exe" : "ffprobe";
+  const siblingPath = path.join(path.dirname(ffmpegPath), ffprobeBinary);
+
+  if (await fileExists(siblingPath)) {
+    return siblingPath;
+  }
+
+  // Fallback to PATH lookup.
+  return ffprobeBinary;
+}
+
+async function probeVideoCodecs(
+  inputPath: string,
+  ffmpegPath: string
+): Promise<VideoCodecInfo | null> {
+  const ffprobePath = await resolveFfprobePath(ffmpegPath);
+
+  return new Promise((resolve) => {
+    const proc = spawn(
+      ffprobePath,
+      [
+        "-v",
+        "error",
+        "-print_format",
+        "json",
+        "-show_entries",
+        "stream=codec_type,codec_name",
+        "-i",
+        inputPath,
+      ],
+      { stdio: ["ignore", "pipe", "pipe"] }
+    );
+
+    let stdout = "";
+    let stderr = "";
+
+    proc.stdout?.on("data", (data) => {
+      stdout += data.toString();
+    });
+
+    proc.stderr?.on("data", (data) => {
+      stderr += data.toString();
+    });
+
+    proc.on("error", (err) => {
+      log.debug({ err, ffprobePath }, "Failed to start ffprobe");
+      resolve(null);
+    });
+
+    proc.on("close", (code) => {
+      if (code !== 0) {
+        log.debug({ ffprobePath, code, stderr: stderr.slice(-500) }, "ffprobe failed");
+        resolve(null);
+
+        return;
+      }
+
+      try {
+        const parsed = JSON.parse(stdout) as {
+          streams?: Array<{ codec_type?: string; codec_name?: string }>;
+        };
+        const streams = parsed.streams ?? [];
+        const videoCodec = streams.find((s) => s.codec_type === "video")?.codec_name ?? null;
+        const audioCodec = streams.find((s) => s.codec_type === "audio")?.codec_name ?? null;
+
+        resolve({ videoCodec, audioCodec });
+      } catch (err) {
+        log.debug({ err, ffprobePath }, "Failed to parse ffprobe output");
+        resolve(null);
+      }
+    });
+  });
+}
+
 /**
  * Convert video to MP4 format if needed.
- * Strategy: Try remux first (fast, lossless), fallback to transcode, keep original if both fail.
+ * Strategy:
+ * Keep only browser-compatible MP4 (H.264 + AAC/MP3)
+ * Remux non-MP4 only when codecs are already compatible
+ * Transcode everything else to H.264/AAC
  */
 export async function convertToMp4(
   inputPath: string,
@@ -690,51 +806,67 @@ export async function convertToMp4(
 ): Promise<ConvertToMp4Result> {
   const ext = path.extname(inputPath).toLowerCase();
 
-  // Already MP4 - no conversion needed
-  if (ext === ".mp4") {
-    log.debug({ inputPath }, "Video is already MP4, no conversion needed");
-
-    return { filePath: inputPath, converted: false, method: "none" };
-  }
-
   if (!ffmpegPath) {
     log.warn({ inputPath }, "ffmpeg not available, keeping original format");
 
     return { filePath: inputPath, converted: false, method: "original" };
   }
 
+  const codecInfo = await probeVideoCodecs(inputPath, ffmpegPath);
+  const browserCompatibleMp4 = isWebPlayableMp4CodecPair(
+    codecInfo?.videoCodec,
+    codecInfo?.audioCodec
+  );
+
+  // MP4 can be kept only when codecs are browser-friendly (e.g. H.264 + AAC).
+  if (ext === ".mp4" && browserCompatibleMp4) {
+    log.debug(
+      {
+        inputPath,
+        videoCodec: codecInfo?.videoCodec ?? null,
+        audioCodec: codecInfo?.audioCodec ?? null,
+      },
+      "Video is already browser-compatible MP4, no conversion needed"
+    );
+
+    return { filePath: inputPath, converted: false, method: "none" };
+  }
+
   const dir = path.dirname(inputPath);
   const baseName = path.basename(inputPath, ext);
-  const outputPath = path.join(dir, `${baseName}.mp4`);
+  const outputBaseName = ext === ".mp4" ? `${baseName}-normalized` : baseName;
+  const outputPath = path.join(dir, `${outputBaseName}.mp4`);
 
-  // Try remux first (fast, lossless copy of streams into MP4 container)
-  try {
-    log.debug({ inputPath, outputPath }, "Attempting video remux to MP4");
+  // Try remux first only for non-MP4 sources that already use browser-compatible codecs.
+  if (ext !== ".mp4" && browserCompatibleMp4) {
+    try {
+      log.debug({ inputPath, outputPath }, "Attempting video remux to MP4");
 
-    await runFfmpeg(ffmpegPath, [
-      "-i",
-      inputPath,
-      "-c",
-      "copy", // Copy streams without re-encoding
-      "-movflags",
-      "+faststart", // Optimize for web streaming
-      outputPath,
-    ]);
+      await runFfmpeg(ffmpegPath, [
+        "-i",
+        inputPath,
+        "-c",
+        "copy", // Copy streams without re-encoding
+        "-movflags",
+        "+faststart", // Optimize for web streaming
+        outputPath,
+      ]);
 
-    // Verify output exists and has content
-    const stats = await fs.stat(outputPath);
+      // Verify output exists and has content
+      const stats = await fs.stat(outputPath);
 
-    if (stats.size > 0) {
-      // Remove original file
-      await fs.unlink(inputPath).catch(() => {});
-      log.info({ inputPath, outputPath, size: stats.size }, "Video remuxed to MP4 successfully");
+      if (stats.size > 0) {
+        // Remove original file
+        await fs.unlink(inputPath).catch(() => {});
+        log.info({ inputPath, outputPath, size: stats.size }, "Video remuxed to MP4 successfully");
 
-      return { filePath: outputPath, converted: true, method: "remux" };
+        return { filePath: outputPath, converted: true, method: "remux" };
+      }
+    } catch (remuxErr) {
+      log.debug({ err: remuxErr }, "Remux failed, trying transcode");
+      // Remove failed output if it exists
+      await fs.unlink(outputPath).catch(() => {});
     }
-  } catch (remuxErr) {
-    log.debug({ err: remuxErr }, "Remux failed, trying transcode");
-    // Remove failed output if it exists
-    await fs.unlink(outputPath).catch(() => {});
   }
 
   // Fallback to transcode (slower, but handles incompatible codecs)

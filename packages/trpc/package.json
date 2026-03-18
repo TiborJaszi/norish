@@ -1,6 +1,6 @@
 {
   "name": "@norish/trpc",
-  "version": "0.17.1-beta",
+  "version": "0.17.3-beta",
   "private": true,
   "type": "module",
   "types": "./dist/public.d.ts",
@@ -43,7 +43,8 @@
     "lint": "eslint --flag unstable_native_nodejs_ts_config",
     "format": "prettier --check . --ignore-path ../../.gitignore",
     "typecheck": "rm -rf dist .cache && tsc -p tsconfig.json --noCheck",
-    "clean": "git clean -xdf .cache .turbo node_modules dist"
+    "clean": "git clean -xdf .cache .turbo node_modules dist",
+    "test": "vitest run --config ./vitest.config.ts"
   },
   "dependencies": {
     "@norish/auth": "workspace:*",
@@ -66,7 +67,8 @@
     "@norish/tsconfig": "workspace:*",
     "@types/ws": "8.18.1",
     "eslint": "catalog:",
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@norish/prettier-config"
 }

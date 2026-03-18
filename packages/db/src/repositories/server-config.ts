@@ -1,7 +1,7 @@
 import type { ServerConfigKey, ServerConfigMetadata } from "../zodSchemas/server-config";
 
 import { eq } from "drizzle-orm";
-import { dbLogger } from "@norish/api/logger";
+import { dbLogger } from "@norish/db/logger";
 import { decrypt, encrypt } from "@norish/auth/crypto";
 
 import { db } from "../drizzle";

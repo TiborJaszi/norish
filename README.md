@@ -84,7 +84,7 @@ Norish is intentionally minimal. It focuses on practical day-to-day use.
 - **Authentication options**: OIDC, OAuth providers, and first-time password auth fallback.
 - **Admin settings UI** for runtime configuration.
 - **Permission policies** for recipe visibility/edit/delete scopes.
-- **Internationalization (i18n)** currently supporting EN, NL, DE, FR, ES and RU
+- **Internationalization (i18n)** currently supporting EN, NL, DE, FR, ES, RU, KO, PL, and DA
 
 _Note: AI feature speed can vary by provider, model, and region._
 
@@ -93,6 +93,8 @@ _Note: AI feature speed can vary by provider, model, and region._
 ## Deploying
 
 ### Minimal Docker Compose
+
+For a full template, see [docker-compose.example.yml](docker/docker-compose.example.yml).
 
 ```yaml
 services:
@@ -119,7 +121,6 @@ services:
       # YT_DLP_BIN_DIR: /app/bin
 
       # First-user auth setup (choose one)
-      # PASSWORD_AUTH_ENABLED=false
       # OIDC_NAME: NoraId
       # OIDC_ISSUER: https://auth.example.com
       # OIDC_CLIENT_ID: <client-id>
@@ -131,11 +132,10 @@ services:
       # GOOGLE_CLIENT_SECRET: <google-client-secret>
     healthcheck:
       test:
-        test:
-          [
-            "CMD-SHELL",
-            'node -e "require(''http'').get(''http://localhost:3000/api/health'', r => process.exit(r.statusCode===200?0:1))"',
-          ]
+        [
+          "CMD-SHELL",
+          'node -e "require(''http'').get(''http://localhost:3000/api/health'', r => process.exit(r.statusCode===200?0:1))"',
+        ]
       interval: 1m
       timeout: 15s
       retries: 3
@@ -213,6 +213,27 @@ Server owners/admins can manage:
 | -------------- | ------------------------------------------- | ------------------------------------- |
 | `DATABASE_URL` | PostgreSQL connection string                | `postgres://user:pass@db:5432/norish` |
 | `MASTER_KEY`   | 32+ character key for encryption derivation | `openssl rand -base64 32`             |
+
+### Optional: compose `DATABASE_URL` from parts
+
+By default, set `DATABASE_URL` directly.
+
+If `DATABASE_URL` is not set, Norish composes it from optional component vars.
+Use this only if you intentionally prefer split variables over a single URL.
+
+For local development, the default setup is still a direct URL in `.env.local`, typically:
+`DATABASE_URL=postgres://postgres:norish@localhost:5432/norish`
+
+When no component vars are set, the fallback URL is:
+`postgresql://postgres:norish@localhost:5432/norish`
+
+| Variable            | Description       | Default     |
+| ------------------- | ----------------- | ----------- |
+| `DATABASE_HOST`     | PostgreSQL host   | `localhost` |
+| `DATABASE_PORT`     | PostgreSQL port   | `5432`      |
+| `DATABASE`          | Database name     | `norish`    |
+| `DATABASE_USER`     | Database username | `postgres`  |
+| `DATABASE_PASSWORD` | Database password | `norish`    |
 
 ### Commonly set in production
 
@@ -420,4 +441,3 @@ This list is not limited to the below but the ones I know:
 Last but not least, a picture of our lovely dog Nora:
 
 <img src="./apps/web/public/nora.jpg" width="25%" alt="Nora" />
-

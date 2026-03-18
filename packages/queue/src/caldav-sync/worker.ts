@@ -8,7 +8,7 @@ import {
   syncPlannedItem,
   truncateErrorMessage,
 } from "@norish/api/caldav/sync-manager";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import {
   createCaldavSyncStatus,
   getCaldavSyncStatusByItemId,

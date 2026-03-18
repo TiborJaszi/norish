@@ -14,6 +14,12 @@ import {
   parseMealieArchive,
   parseMealieRecipeToDTO,
 } from "./mealie-parser";
+import {
+  detectMealieLegacyArchive,
+  extractMealieLegacyImage,
+  extractMealieLegacyRecipes,
+  parseMealieLegacyRecipeToDTO,
+} from "./mealie-legacy-parser";
 import { parseMelaArchive, parseMelaRecipeToDTO } from "./mela-parser";
 import { extractPaprikaRecipes, parsePaprikaRecipeToDTO } from "./paprika-parser";
 import { extractTandoorRecipes, parseTandoorRecipeToDTO } from "./tandoor-parser";
@@ -21,6 +27,7 @@ import { extractTandoorRecipes, parseTandoorRecipeToDTO } from "./tandoor-parser
 export enum ArchiveFormat {
   MELA = "mela",
   MEALIE = "mealie",
+  MEALIE_LEGACY = "mealie-legacy",
   TANDOOR = "tandoor",
   PAPRIKA = "paprika",
   UNKNOWN = "unknown",
@@ -35,6 +42,7 @@ export type ImportResult = {
 /**
  * Detect archive format by inspecting contents
  * - Mealie: contains database.json
+ * - Mealie Legacy: folder-per-recipe with inline JSON
  * - Mela: contains .melarecipe files
  * - Paprika: contains .paprikarecipe files
  * - Tandoor: contains nested .zip files with recipe.json inside
@@ -45,9 +53,49 @@ export type ArchiveInfo = {
 };
 
 /**
+ * If every entry in the zip lives under a single top-level directory,
+ * return a JSZip scoped to that directory ("unwrapping" it).
+ * This handles the common case where zip tools wrap all content in a
+ * root folder (e.g. `mealie-export-2024/recipe-slug/recipe.json`).
+ */
+function unwrapSingleRootFolder(zip: JSZip): JSZip {
+  const topLevelNames = new Set<string>();
+  let hasRootFiles = false;
+
+  zip.forEach((relativePath) => {
+    // Ignore directory entries themselves (they end with /)
+    if (relativePath.endsWith("/") && !relativePath.includes("/", 0)) {
+      // top-level directory entry like "mealie-export/"
+      return;
+    }
+
+    const firstSlash = relativePath.indexOf("/");
+
+    if (firstSlash === -1) {
+      // File at root level (not inside any folder)
+      hasRootFiles = true;
+    } else {
+      topLevelNames.add(relativePath.slice(0, firstSlash));
+    }
+  });
+
+  // If there's exactly one top-level folder and no root-level files, unwrap
+  if (topLevelNames.size === 1 && !hasRootFiles) {
+    const wrapperName = [...topLevelNames][0]!;
+    const inner = zip.folder(wrapperName);
+
+    if (inner) return inner;
+  }
+
+  return zip;
+}
+
+/**
  * Detect archive format and count recipes in one pass
  */
-export async function getArchiveInfo(zip: JSZip): Promise<ArchiveInfo> {
+export async function getArchiveInfo(rawZip: JSZip): Promise<ArchiveInfo> {
+  // Unwrap single root directory wrapper if present
+  const zip = unwrapSingleRootFolder(rawZip);
   // Check for Mealie format (database.json)
   const databaseFile = zip.file("database.json");
 
@@ -104,6 +152,16 @@ export async function getArchiveInfo(zip: JSZip): Promise<ArchiveInfo> {
         // Not a valid Tandoor format
       }
     }
+  }
+
+  // Check for Mealie legacy format (folder-per-recipe with inline JSON)
+  const legacyCount = await detectMealieLegacyArchive(zip);
+
+  if (legacyCount > 0) {
+    return {
+      format: ArchiveFormat.MEALIE_LEGACY,
+      count: legacyCount,
+    };
   }
 
   return { format: ArchiveFormat.UNKNOWN, count: 0 };
@@ -323,6 +381,45 @@ async function* generateMealieRecipes(
 }
 
 /**
+ * Generator for Mealie legacy recipes (folder-per-recipe with inline JSON)
+ */
+async function* generateMealieLegacyRecipes(
+  zip: JSZip
+): AsyncGenerator<RecipeImportItemOrError, void, unknown> {
+  const recipes = await extractMealieLegacyRecipes(zip);
+
+  for (const { recipe, folderName } of recipes) {
+    const recipeName = recipe.name || recipe.id;
+    const fileName = `recipe_${recipeName}`;
+
+    try {
+      const imageBuffer = await extractMealieLegacyImage(zip, folderName);
+
+      const dto = await parseMealieLegacyRecipeToDTO(recipe, imageBuffer);
+
+      // Use inline rating if present
+      let importedRating: number | undefined;
+
+      if (recipe.rating != null && recipe.rating > 0) {
+        importedRating = Math.max(1, Math.min(5, Math.round(recipe.rating)));
+      }
+
+      if (dto) {
+        yield { dto, fileName, importedRating };
+      }
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+
+      yield {
+        dto: undefined,
+        fileName,
+        parseError: errorMessage,
+      };
+    }
+  }
+}
+
+/**
  * Generator for Tandoor recipes
  */
 async function* generateTandoorRecipes(
@@ -374,7 +471,10 @@ export async function importArchive(
     zipBytes.byteOffset,
     zipBytes.byteOffset + zipBytes.byteLength
   ) as ArrayBuffer;
-  const zip = await JSZip.loadAsync(arrayBuffer);
+  const rawZip = await JSZip.loadAsync(arrayBuffer);
+
+  // Unwrap single root directory wrapper if present
+  const zip = unwrapSingleRootFolder(rawZip);
 
   const { format } = await getArchiveInfo(zip);
 
@@ -393,6 +493,9 @@ export async function importArchive(
       break;
     case ArchiveFormat.MEALIE:
       generator = generateMealieRecipes(zip);
+      break;
+    case ArchiveFormat.MEALIE_LEGACY:
+      generator = generateMealieLegacyRecipes(zip);
       break;
     case ArchiveFormat.PAPRIKA:
       generator = generatePaprikaRecipes(zip);

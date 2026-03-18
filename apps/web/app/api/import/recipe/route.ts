@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { parserLogger as log } from "@norish/api/logger";
+import { parserLogger as log } from "@norish/shared-server/logger";
 import { auth } from "@norish/auth/auth";
 import { shouldAlwaysUseAI } from "@norish/config/server-config-loader";
 import { dashboardRecipe, getHouseholdForUser } from "@norish/db";

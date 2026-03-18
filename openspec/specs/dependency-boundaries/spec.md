@@ -17,7 +17,7 @@ The migration SHALL start from an explicit circular dependency baseline and remo
 
 ### Requirement: Enforced Dependency Direction Between Layers
 
-The workspace SHALL enforce one-way dependency direction so shared contracts never import backend internals and backend code never depends on app-specific modules. For the TRPC/API boundary, `@norish/api` MAY depend on `@norish/trpc`, and `@norish/trpc` SHALL NOT depend on `@norish/api`.
+The workspace SHALL enforce one-way dependency direction so shared contracts never import backend internals and backend code never depends on app-specific modules. For the TRPC/API boundary, `@norish/api` MAY depend on `@norish/trpc`, and `@norish/trpc` SHALL NOT depend on `@norish/api`. Infrastructure consumers (`@norish/queue`, `@norish/auth`) SHALL import reusable server infrastructure from `@norish/shared-server` rather than from `@norish/api`.
 
 #### Scenario: Import direction remains valid after extraction
 
@@ -32,6 +32,13 @@ The workspace SHALL enforce one-way dependency direction so shared contracts nev
 - **THEN** `@norish/api` MAY import from `@norish/trpc`
 - **AND** `@norish/trpc` SHALL NOT import from `@norish/api`
 - **AND** boundary compliance SHALL preserve the model where API hosts routes and TRPC owns router/contracts
+
+#### Scenario: Infrastructure imports flow through shared-server not api
+
+- **WHEN** `@norish/queue` or `@norish/auth` needs server infrastructure (logger, media storage, AI foundations)
+- **THEN** these packages SHALL import from `@norish/shared-server`
+- **AND** these packages SHALL NOT import infrastructure modules from `@norish/api` when an equivalent export exists in `@norish/shared-server`
+- **AND** `@norish/queue` MAY still import domain-specific modules from `@norish/api` (e.g., AI features, parser, video) that are not available in `@norish/shared-server`
 
 ### Requirement: Remove Barrel-Based Cross-Layer Coupling
 

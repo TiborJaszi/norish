@@ -21,7 +21,7 @@ import type {
 } from "@norish/queue/contracts/job-types";
 import type { ScheduledTaskJobData } from "./scheduled-tasks/queue";
 
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 
 import { createAllergyDetectionQueue } from "./allergy-detection/queue";
 import { createAutoCategorizationQueue } from "./auto-categorization/queue";

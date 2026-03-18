@@ -4,8 +4,8 @@ import type { VideoMetadata, VideoProcessorContext } from "../types";
 
 import { extractRecipeWithAI } from "@norish/api/ai/recipe-parser";
 import { transcribeAudio } from "@norish/api/ai/transcriber";
-import { downloadImage } from "@norish/api/downloader";
-import { videoLogger as log } from "@norish/api/logger";
+import { downloadImage } from "@norish/shared-server/media/storage";
+import { videoLogger as log } from "@norish/shared-server/logger";
 import { fetchViaPlaywright } from "@norish/api/parser/fetch";
 import { extractRecipeFromVideo } from "@norish/api/video/normalizer";
 

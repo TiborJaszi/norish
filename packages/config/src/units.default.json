@@ -16,6 +16,10 @@
       {
         "locale": "ko",
         "name": "cl"
+      },
+      {
+        "locale": "da",
+        "name": "cl"
       }
     ],
     "plural": [
@@ -34,9 +38,19 @@
       {
         "locale": "ko",
         "name": "센티리터"
+      },
+      {
+        "locale": "da",
+        "name": "cl"
       }
     ],
-    "alternates": ["centiliter", "centiliters", "zentiliter", "cl.", "센티리터"]
+    "alternates": [
+      "centiliter",
+      "centiliters",
+      "zentiliter",
+      "cl.",
+      "센티리터"
+    ]
   },
   "deciliter": {
     "short": [
@@ -54,6 +68,10 @@
       },
       {
         "locale": "ko",
+        "name": "dl"
+      },
+      {
+        "locale": "da",
         "name": "dl"
       }
     ],
@@ -73,9 +91,19 @@
       {
         "locale": "ko",
         "name": "데시리터"
+      },
+      {
+        "locale": "da",
+        "name": "dl"
       }
     ],
-    "alternates": ["deciliter", "deciliters", "deziliter", "dl.", "데시리터"]
+    "alternates": [
+      "deciliter",
+      "deciliters",
+      "deziliter",
+      "dl.",
+      "데시리터"
+    ]
   },
   "gram": {
     "short": [
@@ -93,6 +121,10 @@
       },
       {
         "locale": "ko",
+        "name": "g"
+      },
+      {
+        "locale": "da",
         "name": "g"
       }
     ],
@@ -112,9 +144,23 @@
       {
         "locale": "ko",
         "name": "그램"
+      },
+      {
+        "locale": "da",
+        "name": "g"
       }
     ],
-    "alternates": ["g", "g.", "gr", "gr.", "gramm", "grammen", "그램", "그람"]
+    "alternates": [
+      "g",
+      "g.",
+      "gr",
+      "gr.",
+      "gram",
+      "gramm",
+      "grammen",
+      "그램",
+      "그람"
+    ]
   },
   "teaspoon": {
     "short": [
@@ -133,6 +179,10 @@
       {
         "locale": "ko",
         "name": "작은술"
+      },
+      {
+        "locale": "da",
+        "name": "tsk"
       }
     ],
     "plural": [
@@ -151,12 +201,18 @@
       {
         "locale": "ko",
         "name": "작은술"
+      },
+      {
+        "locale": "da",
+        "name": "tsk"
       }
     ],
     "alternates": [
       "teel",
       "teel.",
       "teelöffel",
+      "teelöff.",
+      "teelöff",
       "theelepel",
       "theelepels",
       "tl",
@@ -165,7 +221,10 @@
       "티스푼",
       "tsp",
       "ts",
-      "t"
+      "t",
+      "tsk.",
+      "teskefuld",
+      "teskefulde"
     ]
   },
   "tablespoon": {
@@ -185,6 +244,10 @@
       {
         "locale": "ko",
         "name": "큰술"
+      },
+      {
+        "locale": "da",
+        "name": "spsk"
       }
     ],
     "plural": [
@@ -203,6 +266,10 @@
       {
         "locale": "ko",
         "name": "큰술"
+      },
+      {
+        "locale": "da",
+        "name": "spsk"
       }
     ],
     "alternates": [
@@ -216,7 +283,10 @@
       "큰술",
       "테이블스푼",
       "tbsp",
-      "T"
+      "T",
+      "spsk.",
+      "spiseskefuld",
+      "spiseskefulde"
     ]
   },
   "knife_tip": {
@@ -236,6 +306,10 @@
       {
         "locale": "ko",
         "name": "칼끝"
+      },
+      {
+        "locale": "da",
+        "name": "knivspids"
       }
     ],
     "plural": [
@@ -254,6 +328,10 @@
       {
         "locale": "ko",
         "name": "칼끝"
+      },
+      {
+        "locale": "da",
+        "name": "knivspidser"
       }
     ],
     "alternates": [
@@ -265,7 +343,9 @@
       "msp",
       "msp.",
       "칼끝",
-      "칼끝만큼"
+      "칼끝만큼",
+      "knsp",
+      "knsp."
     ]
   },
   "pinch": {
@@ -285,6 +365,10 @@
       {
         "locale": "ko",
         "name": "꼬집"
+      },
+      {
+        "locale": "da",
+        "name": "nip"
       }
     ],
     "plural": [
@@ -303,6 +387,10 @@
       {
         "locale": "ko",
         "name": "꼬집"
+      },
+      {
+        "locale": "da",
+        "name": "nip"
       }
     ],
     "alternates": [
@@ -318,7 +406,9 @@
       "snufjes",
       "한꼬집",
       "꼬집",
-      "약간"
+      "약간",
+      "et nip",
+      "drys"
     ]
   },
   "piece": {
@@ -338,6 +428,10 @@
       {
         "locale": "ko",
         "name": "개"
+      },
+      {
+        "locale": "da",
+        "name": "stk."
       }
     ],
     "plural": [
@@ -356,6 +450,10 @@
       {
         "locale": "ko",
         "name": "개"
+      },
+      {
+        "locale": "da",
+        "name": "stk."
       }
     ],
     "alternates": [
@@ -377,7 +475,9 @@
       "개",
       "장",
       "모",
-      "토막"
+      "토막",
+      "styk",
+      "styks"
     ]
   },
   "clove": {
@@ -397,6 +497,10 @@
       {
         "locale": "ko",
         "name": "쪽"
+      },
+      {
+        "locale": "da",
+        "name": "fed"
       }
     ],
     "plural": [
@@ -415,9 +519,23 @@
       {
         "locale": "ko",
         "name": "쪽"
+      },
+      {
+        "locale": "da",
+        "name": "fed"
       }
     ],
-    "alternates": ["zehe(n)", "zehe/n", "teen", "teentje", "teentjes", "tenen", "쪽", "톨"]
+    "alternates": [
+      "zehe(n)",
+      "zehe/n",
+      "teen",
+      "teentje",
+      "teentjes",
+      "tenen",
+      "쪽",
+      "톨",
+      "hvidløgsfed"
+    ]
   },
   "leaf": {
     "short": [
@@ -436,6 +554,10 @@
       {
         "locale": "ko",
         "name": "잎"
+      },
+      {
+        "locale": "da",
+        "name": "blad"
       }
     ],
     "plural": [
@@ -454,12 +576,15 @@
       {
         "locale": "ko",
         "name": "잎"
+      },
+      {
+        "locale": "da",
+        "name": "blade"
       }
     ],
     "alternates": [
       "blaadje",
       "blaadjes",
-      "blad",
       "bladeren",
       "blättchen",
       "leaf",
@@ -485,6 +610,10 @@
       {
         "locale": "ko",
         "name": "줄기"
+      },
+      {
+        "locale": "da",
+        "name": "kvist"
       }
     ],
     "plural": [
@@ -503,6 +632,10 @@
       {
         "locale": "ko",
         "name": "줄기"
+      },
+      {
+        "locale": "da",
+        "name": "kviste"
       }
     ],
     "alternates": [
@@ -520,7 +653,9 @@
       "takken",
       "zweiglein",
       "줄기",
-      "가지"
+      "가지",
+      "stilk",
+      "stilke"
     ]
   },
   "bunch": {
@@ -540,6 +675,10 @@
       {
         "locale": "ko",
         "name": "다발"
+      },
+      {
+        "locale": "da",
+        "name": "bundt"
       }
     ],
     "plural": [
@@ -558,6 +697,10 @@
       {
         "locale": "ko",
         "name": "다발"
+      },
+      {
+        "locale": "da",
+        "name": "bundter"
       }
     ],
     "alternates": [
@@ -592,6 +735,10 @@
       {
         "locale": "ko",
         "name": "대"
+      },
+      {
+        "locale": "da",
+        "name": "stængel"
       }
     ],
     "plural": [
@@ -610,9 +757,20 @@
       {
         "locale": "ko",
         "name": "대"
+      },
+      {
+        "locale": "da",
+        "name": "stængler"
       }
     ],
-    "alternates": ["stengel", "stengels", "대", "줄기"]
+    "alternates": [
+      "stengel",
+      "stengels",
+      "대",
+      "줄기",
+      "stilk",
+      "stilke"
+    ]
   },
   "pack": {
     "short": [
@@ -631,6 +789,10 @@
       {
         "locale": "ko",
         "name": "팩"
+      },
+      {
+        "locale": "da",
+        "name": "pakke"
       }
     ],
     "plural": [
@@ -649,6 +811,10 @@
       {
         "locale": "ko",
         "name": "팩"
+      },
+      {
+        "locale": "da",
+        "name": "pakker"
       }
     ],
     "alternates": [
@@ -671,7 +837,8 @@
       "팩",
       "봉",
       "봉지",
-      "포"
+      "포",
+      "pk."
     ]
   },
   "can": {
@@ -691,6 +858,10 @@
       {
         "locale": "ko",
         "name": "캔"
+      },
+      {
+        "locale": "da",
+        "name": "dåse"
       }
     ],
     "plural": [
@@ -709,6 +880,10 @@
       {
         "locale": "ko",
         "name": "캔"
+      },
+      {
+        "locale": "da",
+        "name": "dåser"
       }
     ],
     "alternates": [
@@ -751,6 +926,10 @@
       {
         "locale": "ko",
         "name": "병"
+      },
+      {
+        "locale": "da",
+        "name": "glas"
       }
     ],
     "plural": [
@@ -769,6 +948,10 @@
       {
         "locale": "ko",
         "name": "병"
+      },
+      {
+        "locale": "da",
+        "name": "glas"
       }
     ],
     "alternates": [
@@ -802,6 +985,10 @@
       {
         "locale": "ko",
         "name": "병"
+      },
+      {
+        "locale": "da",
+        "name": "fl."
       }
     ],
     "plural": [
@@ -820,6 +1007,10 @@
       {
         "locale": "ko",
         "name": "병"
+      },
+      {
+        "locale": "da",
+        "name": "flasker"
       }
     ],
     "alternates": [
@@ -856,6 +1047,10 @@
       {
         "locale": "ko",
         "name": "봉지"
+      },
+      {
+        "locale": "da",
+        "name": "pose"
       }
     ],
     "plural": [
@@ -874,6 +1069,10 @@
       {
         "locale": "ko",
         "name": "봉지"
+      },
+      {
+        "locale": "da",
+        "name": "poser"
       }
     ],
     "alternates": [
@@ -911,6 +1110,10 @@
       {
         "locale": "ko",
         "name": "박스"
+      },
+      {
+        "locale": "da",
+        "name": "æske"
       }
     ],
     "plural": [
@@ -929,9 +1132,23 @@
       {
         "locale": "ko",
         "name": "박스"
+      },
+      {
+        "locale": "da",
+        "name": "æsker"
       }
     ],
-    "alternates": ["box", "boxes", "bx", "bx.", "doosje", "doosjes", "dozen", "박스", "상자"]
+    "alternates": [
+      "box",
+      "boxes",
+      "bx",
+      "bx.",
+      "doosje",
+      "doosjes",
+      "dozen",
+      "박스",
+      "상자"
+    ]
   },
   "handful": {
     "short": [
@@ -950,6 +1167,10 @@
       {
         "locale": "ko",
         "name": "한줌"
+      },
+      {
+        "locale": "da",
+        "name": "håndfuld"
       }
     ],
     "plural": [
@@ -968,6 +1189,10 @@
       {
         "locale": "ko",
         "name": "한줌"
+      },
+      {
+        "locale": "da",
+        "name": "håndfulde"
       }
     ],
     "alternates": [
@@ -1002,6 +1227,10 @@
       {
         "locale": "ko",
         "name": "약간"
+      },
+      {
+        "locale": "da",
+        "name": "skvæt"
       }
     ],
     "plural": [
@@ -1020,6 +1249,10 @@
       {
         "locale": "ko",
         "name": "약간"
+      },
+      {
+        "locale": "da",
+        "name": "skvæt"
       }
     ],
     "alternates": [
@@ -1032,7 +1265,10 @@
       "splash",
       "splashes",
       "약간",
-      "조금"
+      "조금",
+      "et skvæt",
+      "slat",
+      "slatter"
     ]
   },
   "cup": {
@@ -1052,6 +1288,10 @@
       {
         "locale": "ko",
         "name": "컵"
+      },
+      {
+        "locale": "da",
+        "name": "kop"
       }
     ],
     "plural": [
@@ -1070,6 +1310,10 @@
       {
         "locale": "ko",
         "name": "컵"
+      },
+      {
+        "locale": "da",
+        "name": "kopper"
       }
     ],
     "alternates": [
@@ -1091,7 +1335,8 @@
       "tass.",
       "tässchen",
       "컵",
-      "공기"
+      "공기",
+      "pægl"
     ]
   },
   "glass": {
@@ -1111,6 +1356,10 @@
       {
         "locale": "ko",
         "name": "잔"
+      },
+      {
+        "locale": "da",
+        "name": "glas"
       }
     ],
     "plural": [
@@ -1129,6 +1378,10 @@
       {
         "locale": "ko",
         "name": "잔"
+      },
+      {
+        "locale": "da",
+        "name": "glas"
       }
     ],
     "alternates": [
@@ -1161,6 +1414,10 @@
       {
         "locale": "ko",
         "name": "조각"
+      },
+      {
+        "locale": "da",
+        "name": "skive"
       }
     ],
     "plural": [
@@ -1179,6 +1436,10 @@
       {
         "locale": "ko",
         "name": "조각"
+      },
+      {
+        "locale": "da",
+        "name": "skiver"
       }
     ],
     "alternates": [
@@ -1213,6 +1474,10 @@
       {
         "locale": "ko",
         "name": "채"
+      },
+      {
+        "locale": "da",
+        "name": "strimmel"
       }
     ],
     "plural": [
@@ -1231,9 +1496,21 @@
       {
         "locale": "ko",
         "name": "채"
+      },
+      {
+        "locale": "da",
+        "name": "strimler"
       }
     ],
-    "alternates": ["reepje", "reepjes", "repen", "strip", "strips", "채", "가늘게썬조각"]
+    "alternates": [
+      "reepje",
+      "reepjes",
+      "repen",
+      "strip",
+      "strips",
+      "채",
+      "가늘게썬조각"
+    ]
   },
   "sheet": {
     "short": [
@@ -1252,6 +1529,10 @@
       {
         "locale": "ko",
         "name": "장"
+      },
+      {
+        "locale": "da",
+        "name": "ark"
       }
     ],
     "plural": [
@@ -1270,9 +1551,19 @@
       {
         "locale": "ko",
         "name": "장"
+      },
+      {
+        "locale": "da",
+        "name": "ark"
       }
     ],
-    "alternates": ["vel", "vellen", "velletje", "velletjes", "장"]
+    "alternates": [
+      "vel",
+      "vellen",
+      "velletje",
+      "velletjes",
+      "장"
+    ]
   },
   "serving": {
     "short": [
@@ -1291,6 +1582,10 @@
       {
         "locale": "ko",
         "name": "인분"
+      },
+      {
+        "locale": "da",
+        "name": "portion"
       }
     ],
     "plural": [
@@ -1309,6 +1604,10 @@
       {
         "locale": "ko",
         "name": "인분"
+      },
+      {
+        "locale": "da",
+        "name": "portioner"
       }
     ],
     "alternates": [
@@ -1340,6 +1639,10 @@
       {
         "locale": "ko",
         "name": "둥근 조각"
+      },
+      {
+        "locale": "da",
+        "name": "skive"
       }
     ],
     "plural": [
@@ -1358,9 +1661,21 @@
       {
         "locale": "ko",
         "name": "둥근 조각"
+      },
+      {
+        "locale": "da",
+        "name": "skiver"
       }
     ],
-    "alternates": ["schijfje", "schijfjes", "schijven", "둥근 조각", "동그랗게 썬 것"]
+    "alternates": [
+      "schijfje",
+      "schijfjes",
+      "schijven",
+      "둥근 조각",
+      "동그랗게 썬 것",
+      "rundskive",
+      "rundtenom"
+    ]
   },
   "ring": {
     "short": [
@@ -1379,6 +1694,10 @@
       {
         "locale": "ko",
         "name": "링"
+      },
+      {
+        "locale": "da",
+        "name": "ring"
       }
     ],
     "plural": [
@@ -1397,9 +1716,20 @@
       {
         "locale": "ko",
         "name": "링"
+      },
+      {
+        "locale": "da",
+        "name": "ringe"
       }
     ],
-    "alternates": ["ring", "ringen", "ringlein", "링", "고리 모양"]
+    "alternates": [
+      "ring",
+      "ringen",
+      "ringlein",
+      "링",
+      "고리 모양",
+      "ringe"
+    ]
   },
   "ball": {
     "short": [
@@ -1418,6 +1748,10 @@
       {
         "locale": "ko",
         "name": "알"
+      },
+      {
+        "locale": "da",
+        "name": "kugle"
       }
     ],
     "plural": [
@@ -1436,9 +1770,22 @@
       {
         "locale": "ko",
         "name": "알"
+      },
+      {
+        "locale": "da",
+        "name": "kugler"
       }
     ],
-    "alternates": ["bol", "bollen", "bolletje", "bolletjes", "kügelchen", "알", "경단", "볼"]
+    "alternates": [
+      "bol",
+      "bollen",
+      "bolletje",
+      "bolletjes",
+      "kügelchen",
+      "알",
+      "경단",
+      "볼"
+    ]
   },
   "dash": {
     "short": [
@@ -1457,6 +1804,10 @@
       {
         "locale": "ko",
         "name": "약간"
+      },
+      {
+        "locale": "da",
+        "name": "stænk"
       }
     ],
     "plural": [
@@ -1475,9 +1826,20 @@
       {
         "locale": "ko",
         "name": "약간"
+      },
+      {
+        "locale": "da",
+        "name": "stænk"
       }
     ],
-    "alternates": ["a dash", "dash", "dashes", "약간", "소량"]
+    "alternates": [
+      "a dash",
+      "dash",
+      "dashes",
+      "약간",
+      "소량",
+      "et stænk"
+    ]
   },
   "drizzle": {
     "short": [
@@ -1496,6 +1858,10 @@
       {
         "locale": "ko",
         "name": "살짝"
+      },
+      {
+        "locale": "da",
+        "name": "dryp"
       }
     ],
     "plural": [
@@ -1514,9 +1880,20 @@
       {
         "locale": "ko",
         "name": "살짝"
+      },
+      {
+        "locale": "da",
+        "name": "dryp"
       }
     ],
-    "alternates": ["a drizzle", "drizzle", "drizzles", "spritzerchen", "살짝", "뿌림"]
+    "alternates": [
+      "a drizzle",
+      "drizzle",
+      "drizzles",
+      "spritzerchen",
+      "살짝",
+      "뿌림"
+    ]
   },
   "scoop": {
     "short": [
@@ -1535,6 +1912,10 @@
       {
         "locale": "ko",
         "name": "스쿱"
+      },
+      {
+        "locale": "da",
+        "name": "kugle"
       }
     ],
     "plural": [
@@ -1553,9 +1934,18 @@
       {
         "locale": "ko",
         "name": "스쿱"
+      },
+      {
+        "locale": "da",
+        "name": "kugler"
       }
     ],
-    "alternates": ["scoop", "scoops", "스쿱", "국자"]
+    "alternates": [
+      "scoop",
+      "scoops",
+      "스쿱",
+      "국자"
+    ]
   },
   "stick": {
     "short": [
@@ -1574,6 +1964,10 @@
       {
         "locale": "ko",
         "name": "막대"
+      },
+      {
+        "locale": "da",
+        "name": "stang"
       }
     ],
     "plural": [
@@ -1592,9 +1986,20 @@
       {
         "locale": "ko",
         "name": "막대"
+      },
+      {
+        "locale": "da",
+        "name": "stænger"
       }
     ],
-    "alternates": ["stick", "stick(s)", "sticks", "stänglein", "막대", "스틱"]
+    "alternates": [
+      "stick",
+      "stick(s)",
+      "sticks",
+      "stänglein",
+      "막대",
+      "스틱"
+    ]
   },
   "tub": {
     "short": [
@@ -1613,6 +2018,10 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "bæger"
       }
     ],
     "plural": [
@@ -1631,9 +2040,19 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "bægre"
       }
     ],
-    "alternates": ["container", "tub", "tubs", "통", "용기"]
+    "alternates": [
+      "container",
+      "tub",
+      "tubs",
+      "통",
+      "용기"
+    ]
   },
   "capful": {
     "short": [
@@ -1652,6 +2071,10 @@
       {
         "locale": "ko",
         "name": "뚜껑"
+      },
+      {
+        "locale": "da",
+        "name": "hætte"
       }
     ],
     "plural": [
@@ -1670,9 +2093,19 @@
       {
         "locale": "ko",
         "name": "뚜껑"
+      },
+      {
+        "locale": "da",
+        "name": "hætter"
       }
     ],
-    "alternates": ["cap full", "capful", "capfuls", "뚜껑", "캡"]
+    "alternates": [
+      "cap full",
+      "capful",
+      "capfuls",
+      "뚜껑",
+      "캡"
+    ]
   },
   "pouch": {
     "short": [
@@ -1691,6 +2124,10 @@
       {
         "locale": "ko",
         "name": "파우치"
+      },
+      {
+        "locale": "da",
+        "name": "pose"
       }
     ],
     "plural": [
@@ -1709,9 +2146,18 @@
       {
         "locale": "ko",
         "name": "파우치"
+      },
+      {
+        "locale": "da",
+        "name": "poser"
       }
     ],
-    "alternates": ["pouch", "pouches", "파우치", "주머니"]
+    "alternates": [
+      "pouch",
+      "pouches",
+      "파우치",
+      "주머니"
+    ]
   },
   "sleeve": {
     "short": [
@@ -1730,6 +2176,10 @@
       {
         "locale": "ko",
         "name": "봉지"
+      },
+      {
+        "locale": "da",
+        "name": "omslag"
       }
     ],
     "plural": [
@@ -1748,9 +2198,18 @@
       {
         "locale": "ko",
         "name": "봉지"
+      },
+      {
+        "locale": "da",
+        "name": "omslag"
       }
     ],
-    "alternates": ["sleeve", "sleeves", "봉지", "묶음"]
+    "alternates": [
+      "sleeve",
+      "sleeves",
+      "봉지",
+      "묶음"
+    ]
   },
   "roll": {
     "short": [
@@ -1769,6 +2228,10 @@
       {
         "locale": "ko",
         "name": "롤"
+      },
+      {
+        "locale": "da",
+        "name": "rulle"
       }
     ],
     "plural": [
@@ -1787,9 +2250,19 @@
       {
         "locale": "ko",
         "name": "롤"
+      },
+      {
+        "locale": "da",
+        "name": "ruller"
       }
     ],
-    "alternates": ["roll", "rolls", "röllchen", "롤", "말이"]
+    "alternates": [
+      "roll",
+      "rolls",
+      "röllchen",
+      "롤",
+      "말이"
+    ]
   },
   "ear": {
     "short": [
@@ -1808,6 +2281,10 @@
       {
         "locale": "ko",
         "name": "개"
+      },
+      {
+        "locale": "da",
+        "name": "kolbe"
       }
     ],
     "plural": [
@@ -1826,9 +2303,21 @@
       {
         "locale": "ko",
         "name": "개"
+      },
+      {
+        "locale": "da",
+        "name": "kolber"
       }
     ],
-    "alternates": ["ear", "ear of corn", "ears", "ears of corn", "개", "이삭"]
+    "alternates": [
+      "ear",
+      "ear of corn",
+      "ears",
+      "ears of corn",
+      "개",
+      "이삭",
+      "majskolbe"
+    ]
   },
   "wedge": {
     "short": [
@@ -1847,6 +2336,10 @@
       {
         "locale": "ko",
         "name": "쪽"
+      },
+      {
+        "locale": "da",
+        "name": "båd"
       }
     ],
     "plural": [
@@ -1865,9 +2358,19 @@
       {
         "locale": "ko",
         "name": "쪽"
+      },
+      {
+        "locale": "da",
+        "name": "både"
       }
     ],
-    "alternates": ["ecke", "keil", "wedge", "wedges", "쪽"]
+    "alternates": [
+      "ecke",
+      "keil",
+      "wedge",
+      "wedges",
+      "쪽"
+    ]
   },
   "chunk": {
     "short": [
@@ -1886,6 +2389,10 @@
       {
         "locale": "ko",
         "name": "덩어리"
+      },
+      {
+        "locale": "da",
+        "name": "klump"
       }
     ],
     "plural": [
@@ -1904,9 +2411,18 @@
       {
         "locale": "ko",
         "name": "덩어리"
+      },
+      {
+        "locale": "da",
+        "name": "klumper"
       }
     ],
-    "alternates": ["chunk", "chunks", "덩어리", "토막"]
+    "alternates": [
+      "chunk",
+      "chunks",
+      "덩어리",
+      "토막"
+    ]
   },
   "cube": {
     "short": [
@@ -1925,6 +2441,10 @@
       {
         "locale": "ko",
         "name": "깍둑"
+      },
+      {
+        "locale": "da",
+        "name": "terning"
       }
     ],
     "plural": [
@@ -1943,9 +2463,19 @@
       {
         "locale": "ko",
         "name": "깍둑"
+      },
+      {
+        "locale": "da",
+        "name": "terninger"
       }
     ],
-    "alternates": ["cube", "cubes", "würfelchen", "깍둑썰기", "큐브"]
+    "alternates": [
+      "cube",
+      "cubes",
+      "würfelchen",
+      "깍둑썰기",
+      "큐브"
+    ]
   },
   "fillet": {
     "short": [
@@ -1964,6 +2494,10 @@
       {
         "locale": "ko",
         "name": "토막"
+      },
+      {
+        "locale": "da",
+        "name": "filet"
       }
     ],
     "plural": [
@@ -1982,9 +2516,21 @@
       {
         "locale": "ko",
         "name": "토막"
+      },
+      {
+        "locale": "da",
+        "name": "fileter"
       }
     ],
-    "alternates": ["filet", "filets", "fillet", "fillets", "토막", "필렛", "필레"]
+    "alternates": [
+      "filet",
+      "filets",
+      "fillet",
+      "fillets",
+      "토막",
+      "필렛",
+      "필레"
+    ]
   },
   "heaping_tablespoon": {
     "short": [
@@ -1994,7 +2540,7 @@
       },
       {
         "locale": "de",
-        "name": "gehäufter EL"
+        "name": "geh. EL"
       },
       {
         "locale": "nl",
@@ -2003,6 +2549,10 @@
       {
         "locale": "ko",
         "name": "수북한 큰술"
+      },
+      {
+        "locale": "da",
+        "name": "toppet spsk"
       }
     ],
     "plural": [
@@ -2012,7 +2562,7 @@
       },
       {
         "locale": "de",
-        "name": "gehäufte EL"
+        "name": "geh. EL"
       },
       {
         "locale": "nl",
@@ -2021,12 +2571,21 @@
       {
         "locale": "ko",
         "name": "수북한 큰술"
+      },
+      {
+        "locale": "da",
+        "name": "toppet spsk"
       }
     ],
     "alternates": [
       "gehäufte esslöffel",
       "gehäufter esslöffel",
+      "gehäufte el",
+      "gehäufter el",
       "el, gehäuft",
+      "el, geh.",
+      "el gehäuft",
+      "el geh.",
       "großzügige el",
       "großzügige esslöffel",
       "großzügiger el",
@@ -2034,7 +2593,14 @@
       "heaping tablespoon",
       "heaping tablespoons",
       "수북한 큰술",
-      "수북이 큰술"
+      "수북이 큰술",
+      "toppet spsk.",
+      "toppet spiseskefuld",
+      "spiseskefuld med top",
+      "spiseske med top",
+      "spsk med top",
+      "spsk m. top",
+      "spsk. m. top"
     ]
   },
   "scant_tablespoon": {
@@ -2054,6 +2620,10 @@
       {
         "locale": "ko",
         "name": "깎은 큰술"
+      },
+      {
+        "locale": "da",
+        "name": "strøget spsk"
       }
     ],
     "plural": [
@@ -2072,10 +2642,17 @@
       {
         "locale": "ko",
         "name": "깎은 큰술"
+      },
+      {
+        "locale": "da",
+        "name": "strøget spsk"
       }
     ],
     "alternates": [
       "el, gestr.",
+      "el, gestrichen",
+      "el gestr.",
+      "el gestrichen",
       "gestrichene el",
       "gestrichene esslöffel",
       "gestrichener el",
@@ -2086,7 +2663,10 @@
       "knapper esslöffel",
       "scant tablespoon",
       "scant tablespoons",
-      "깎은 큰술"
+      "깎은 큰술",
+      "strøget spsk.",
+      "strøget spiseskefuld",
+      "strøget spiseske"
     ]
   },
   "generous_pinch": {
@@ -2106,6 +2686,10 @@
       {
         "locale": "ko",
         "name": "넉넉한 꼬집"
+      },
+      {
+        "locale": "da",
+        "name": "godt nip"
       }
     ],
     "plural": [
@@ -2124,6 +2708,10 @@
       {
         "locale": "ko",
         "name": "넉넉한 꼬집"
+      },
+      {
+        "locale": "da",
+        "name": "gode nip"
       }
     ],
     "alternates": [
@@ -2135,7 +2723,9 @@
       "heaping pinch",
       "large pinch",
       "넉넉한 꼬집",
-      "큰 꼬집"
+      "큰 꼬집",
+      "god knivspids",
+      "stor knivspids"
     ]
   },
   "large_splash": {
@@ -2155,6 +2745,10 @@
       {
         "locale": "ko",
         "name": "넉넉히"
+      },
+      {
+        "locale": "da",
+        "name": "stort skvæt"
       }
     ],
     "plural": [
@@ -2164,7 +2758,7 @@
       },
       {
         "locale": "de",
-        "name": "große Schuss"
+        "name": "große Schüsse"
       },
       {
         "locale": "nl",
@@ -2173,6 +2767,10 @@
       {
         "locale": "ko",
         "name": "넉넉히"
+      },
+      {
+        "locale": "da",
+        "name": "store skvæt"
       }
     ],
     "alternates": [
@@ -2181,7 +2779,8 @@
       "grosser schuss",
       "großer schuß",
       "großzügiger schuss",
-      "넉넉히"
+      "넉넉히",
+      "godt skvæt"
     ]
   },
   "dozen": {
@@ -2201,6 +2800,10 @@
       {
         "locale": "ko",
         "name": "다스"
+      },
+      {
+        "locale": "da",
+        "name": "dusin"
       }
     ],
     "plural": [
@@ -2219,9 +2822,19 @@
       {
         "locale": "ko",
         "name": "다스"
+      },
+      {
+        "locale": "da",
+        "name": "dusin"
       }
     ],
-    "alternates": ["dutzende", "dz", "dz.", "다스", "더즌"]
+    "alternates": [
+      "dutzende",
+      "dz",
+      "dz.",
+      "다스",
+      "더즌"
+    ]
   },
   "small_splash": {
     "short": [
@@ -2240,6 +2853,10 @@
       {
         "locale": "ko",
         "name": "조금"
+      },
+      {
+        "locale": "da",
+        "name": "lille skvæt"
       }
     ],
     "plural": [
@@ -2249,7 +2866,7 @@
       },
       {
         "locale": "de",
-        "name": "kleine Schuss"
+        "name": "kleine Schüsse"
       },
       {
         "locale": "nl",
@@ -2258,9 +2875,19 @@
       {
         "locale": "ko",
         "name": "조금"
+      },
+      {
+        "locale": "da",
+        "name": "lille skvæt"
       }
     ],
-    "alternates": ["kleiner schuß", "winziger schuss", "조금", "소량"]
+    "alternates": [
+      "kleiner schuß",
+      "winziger schuss",
+      "조금",
+      "소량",
+      "en smule"
+    ]
   },
   "bulb": {
     "short": [
@@ -2279,6 +2906,10 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "hoved"
       }
     ],
     "plural": [
@@ -2297,9 +2928,17 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "hoveder"
       }
     ],
-    "alternates": ["knöllchen", "통", "뿌리"]
+    "alternates": [
+      "knöllchen",
+      "통",
+      "뿌리"
+    ]
   },
   "head": {
     "short": [
@@ -2318,6 +2957,10 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "hoved"
       }
     ],
     "plural": [
@@ -2336,9 +2979,17 @@
       {
         "locale": "ko",
         "name": "통"
+      },
+      {
+        "locale": "da",
+        "name": "hoveder"
       }
     ],
-    "alternates": ["köpfchen", "통", "포기"]
+    "alternates": [
+      "köpfchen",
+      "통",
+      "포기"
+    ]
   },
   "to_taste": {
     "short": [
@@ -2357,6 +3008,10 @@
       {
         "locale": "ko",
         "name": "기호에 맞게"
+      },
+      {
+        "locale": "da",
+        "name": "efter smag"
       }
     ],
     "plural": [
@@ -2375,9 +3030,23 @@
       {
         "locale": "ko",
         "name": "기호에 맞게"
+      },
+      {
+        "locale": "da",
+        "name": "efter smag"
       }
     ],
-    "alternates": ["nach bedarf", "nach belieben", "nach geschmack", "기호에 맞게", "취향껏"]
+    "alternates": [
+      "n.b.",
+      "nach bedarf",
+      "nach belieben",
+      "nach geschmack",
+      "기호에 맞게",
+      "취향껏",
+      "smages til",
+      "efter behag",
+      "efter behov"
+    ]
   },
   "pound": {
     "short": [
@@ -2396,6 +3065,10 @@
       {
         "locale": "ko",
         "name": "파운드"
+      },
+      {
+        "locale": "da",
+        "name": "pund"
       }
     ],
     "plural": [
@@ -2414,9 +3087,18 @@
       {
         "locale": "ko",
         "name": "파운드"
+      },
+      {
+        "locale": "da",
+        "name": "pund"
       }
     ],
-    "alternates": ["pfd", "pfd.", "파운드", "lb"]
+    "alternates": [
+      "pfd",
+      "pfd.",
+      "파운드",
+      "lb"
+    ]
   },
   "bar": {
     "short": [
@@ -2435,6 +3117,10 @@
       {
         "locale": "ko",
         "name": "판"
+      },
+      {
+        "locale": "da",
+        "name": "plade"
       }
     ],
     "plural": [
@@ -2453,9 +3139,18 @@
       {
         "locale": "ko",
         "name": "판"
+      },
+      {
+        "locale": "da",
+        "name": "plader"
       }
     ],
-    "alternates": ["reihen", "riegelchen", "판", "바"]
+    "alternates": [
+      "reihen",
+      "riegelchen",
+      "판",
+      "바"
+    ]
   },
   "bowl": {
     "short": [
@@ -2474,6 +3169,10 @@
       {
         "locale": "ko",
         "name": "공기"
+      },
+      {
+        "locale": "da",
+        "name": "skål"
       }
     ],
     "plural": [
@@ -2492,9 +3191,17 @@
       {
         "locale": "ko",
         "name": "공기"
+      },
+      {
+        "locale": "da",
+        "name": "skåle"
       }
     ],
-    "alternates": ["schälchen", "공기", "그릇"]
+    "alternates": [
+      "schälchen",
+      "공기",
+      "그릇"
+    ]
   },
   "heaping_teaspoon": {
     "short": [
@@ -2504,7 +3211,7 @@
       },
       {
         "locale": "de",
-        "name": "gehäufter TL"
+        "name": "geh. TL"
       },
       {
         "locale": "nl",
@@ -2513,6 +3220,10 @@
       {
         "locale": "ko",
         "name": "수북한 작은술"
+      },
+      {
+        "locale": "da",
+        "name": "toppet tsk"
       }
     ],
     "plural": [
@@ -2522,7 +3233,7 @@
       },
       {
         "locale": "de",
-        "name": "gehäufte TL"
+        "name": "geh. TL"
       },
       {
         "locale": "nl",
@@ -2531,10 +3242,17 @@
       {
         "locale": "ko",
         "name": "수북한 작은술"
+      },
+      {
+        "locale": "da",
+        "name": "toppede tsk"
       }
     ],
     "alternates": [
       "tl, gehäuft",
+      "tl, geh.",
+      "tl gehäuft",
+      "tl geh.",
       "gehäufte teelöffel",
       "gehäufter teelöffel",
       "großzügige teelöffel",
@@ -2542,7 +3260,15 @@
       "großzügiger teelöffel",
       "großzügiger tl",
       "수북한 작은술",
-      "수북이 작은술"
+      "수북이 작은술",
+      "toppet tsk.",
+      "toppet teskefuld",
+      "teskefuld med top",
+      "teskefuld m. top",
+      "teske med top",
+      "tsk med top",
+      "tsk m. top",
+      "tsk. m. top"
     ]
   },
   "scant_teaspoon": {
@@ -2562,6 +3288,10 @@
       {
         "locale": "ko",
         "name": "깎은 작은술"
+      },
+      {
+        "locale": "da",
+        "name": "strøget tsk"
       }
     ],
     "plural": [
@@ -2580,19 +3310,29 @@
       {
         "locale": "ko",
         "name": "깎은 작은술"
+      },
+      {
+        "locale": "da",
+        "name": "strøget tsk"
       }
     ],
     "alternates": [
       "tl, gestr.",
+      "tl, gestrichen",
+      "tl gestr.",
+      "tl gestrichen",
       "gestrichene teelöffel",
       "gestrichene tl",
       "gestrichener teelöffel",
       "gestrichener tl",
-      "kanpper tl",
+      "knapper tl",
       "knappe teelöffel",
       "knappe tl",
       "knapper teelöffel",
-      "깎은 작은술"
+      "깎은 작은술",
+      "strøget tsk.",
+      "strøget teskefuld",
+      "strøget teske"
     ]
   },
   "pot": {
@@ -2612,6 +3352,10 @@
       {
         "locale": "ko",
         "name": "냄비"
+      },
+      {
+        "locale": "da",
+        "name": "gryde"
       }
     ],
     "plural": [
@@ -2630,9 +3374,16 @@
       {
         "locale": "ko",
         "name": "냄비"
+      },
+      {
+        "locale": "da",
+        "name": "gryder"
       }
     ],
-    "alternates": ["냄비", "솥"]
+    "alternates": [
+      "냄비",
+      "솥"
+    ]
   },
   "drop": {
     "short": [
@@ -2651,6 +3402,10 @@
       {
         "locale": "ko",
         "name": "방울"
+      },
+      {
+        "locale": "da",
+        "name": "dråbe"
       }
     ],
     "plural": [
@@ -2669,9 +3424,23 @@
       {
         "locale": "ko",
         "name": "방울"
+      },
+      {
+        "locale": "da",
+        "name": "dråber"
       }
     ],
-    "alternates": ["tr", "tr.", "trpf", "trpf.", "tröpfchen", "방울", "한방울"]
+    "alternates": [
+      "tropfen",
+      "tropf",
+      "tr",
+      "tr.",
+      "trpf",
+      "trpf.",
+      "tröpfchen",
+      "방울",
+      "한방울"
+    ]
   },
   "ounce": {
     "short": [
@@ -2690,6 +3459,10 @@
       {
         "locale": "ko",
         "name": "온스"
+      },
+      {
+        "locale": "da",
+        "name": "oz"
       }
     ],
     "plural": [
@@ -2708,9 +3481,17 @@
       {
         "locale": "ko",
         "name": "온스"
+      },
+      {
+        "locale": "da",
+        "name": "oz"
       }
     ],
-    "alternates": ["oz", "oz.", "온스"]
+    "alternates": [
+      "oz",
+      "oz.",
+      "온스"
+    ]
   },
   "milliliter": {
     "short": [
@@ -2728,6 +3509,10 @@
       },
       {
         "locale": "ko",
+        "name": "ml"
+      },
+      {
+        "locale": "da",
         "name": "ml"
       }
     ],
@@ -2747,6 +3532,10 @@
       {
         "locale": "ko",
         "name": "밀리리터"
+      },
+      {
+        "locale": "da",
+        "name": "milliliter"
       }
     ],
     "alternates": [
@@ -2757,8 +3546,7 @@
       "ml",
       "ml.",
       "밀리리터",
-      "밀리",
-      "mL"
+      "밀리"
     ]
   },
   "liter": {
@@ -2778,6 +3566,10 @@
       {
         "locale": "ko",
         "name": "L"
+      },
+      {
+        "locale": "da",
+        "name": "l"
       }
     ],
     "plural": [
@@ -2796,8 +3588,75 @@
       {
         "locale": "ko",
         "name": "리터"
+      },
+      {
+        "locale": "da",
+        "name": "liter"
       }
     ],
-    "alternates": ["liter", "liters", "litre", "litres", "l", "l.", "L", "리터"]
+    "alternates": [
+      "liter",
+      "liters",
+      "litre",
+      "litres",
+      "l",
+      "l.",
+      "L",
+      "리터"
+    ]
+  },
+  "centimeter": {
+    "short": [
+      {
+        "locale": "en",
+        "name": "cm"
+      },
+      {
+        "locale": "de",
+        "name": "cm"
+      },
+      {
+        "locale": "nl",
+        "name": "cm"
+      },
+      {
+        "locale": "ko",
+        "name": "cm"
+      },
+      {
+        "locale": "da",
+        "name": "cm"
+      }
+    ],
+    "plural": [
+      {
+        "locale": "en",
+        "name": "centimeters"
+      },
+      {
+        "locale": "de",
+        "name": "cm"
+      },
+      {
+        "locale": "nl",
+        "name": "centimeter"
+      },
+      {
+        "locale": "ko",
+        "name": "센티미터"
+      },
+      {
+        "locale": "da",
+        "name": "cm"
+      }
+    ],
+    "alternates": [
+      "centimeter",
+      "centimeters",
+      "zentimeter",
+      "cm.",
+      "센치",
+      "센치미터"
+    ]
   }
 }

@@ -16,7 +16,7 @@ export {
   type AIResult,
   type AIErrorCode,
   type TokenUsage,
-} from "../types/result";
+} from "@norish/shared-server/ai/types/result";
 
 // Re-export provider types to avoid duplication
 export type {
@@ -24,7 +24,7 @@ export type {
   GenerationSettings,
   ModelCapabilities,
   AvailableModel,
-} from "../providers/types";
+} from "@norish/shared-server/ai/providers/types";
 
 /**
  * Content types for multimodal inputs.

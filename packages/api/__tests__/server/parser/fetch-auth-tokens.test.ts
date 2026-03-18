@@ -50,7 +50,7 @@ vi.mock("@norish/api/playwright", () => ({
   getBrowser: mockGetBrowser,
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   parserLogger: {
     debug: vi.fn(),
     warn: vi.fn(),

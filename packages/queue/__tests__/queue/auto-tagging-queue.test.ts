@@ -73,7 +73,7 @@ vi.mock("@norish/queue/redis/bullmq", () => ({
 }));
 
 // Mock logger
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   createLogger: vi.fn(() => ({
     info: vi.fn(),
     debug: vi.fn(),

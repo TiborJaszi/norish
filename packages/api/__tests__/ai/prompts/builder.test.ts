@@ -10,7 +10,7 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 import { buildAutoTaggingPrompt } from "@norish/api/ai/prompts/builder";
-import { loadPrompt } from "@norish/api/ai/prompts/loader";
+import { loadPrompt } from "@norish/shared-server/ai/prompts/loader";
 import { getAutoTaggingMode } from "@norish/config/server-config-loader";
 import { listAllTagNames } from "@norish/db/repositories/tags";
 
@@ -23,7 +23,7 @@ vi.mock("@norish/db/repositories/tags", () => ({
   listAllTagNames: vi.fn(),
 }));
 
-vi.mock("@norish/api/ai/prompts/loader", () => ({
+vi.mock("@norish/shared-server/ai/prompts/loader", () => ({
   loadPrompt: vi.fn(),
   fillPrompt: vi.fn((template, _vars) => template),
 }));

@@ -1,4 +1,4 @@
-import { schedulerLogger } from "@norish/api/logger";
+import { schedulerLogger } from "@norish/shared-server/logger";
 import { getHouseholdForUser } from "@norish/db";
 import {
   getDueRecurringGroceries,

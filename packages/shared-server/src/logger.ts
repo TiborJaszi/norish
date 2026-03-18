@@ -80,4 +80,18 @@ export const videoLogger = createLogger("video");
 export const parserLogger = createLogger("parser");
 export const redisLogger = createLogger("redis");
 
+export function redactUrl(raw: string): string {
+  try {
+    const url = new URL(raw);
+
+    if (url.password) {
+      url.password = "***";
+    }
+
+    return url.toString();
+  } catch {
+    return raw.replace(/(\/\/)([^@]+)@/, "$1***@");
+  }
+}
+
 export default logger;

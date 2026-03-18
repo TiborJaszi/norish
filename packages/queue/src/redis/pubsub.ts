@@ -8,7 +8,7 @@
 import { on } from "node:events";
 
 import superjson from "superjson";
-import { redisLogger } from "@norish/api/logger";
+import { redisLogger } from "@norish/shared-server/logger";
 
 import { createSubscriberClient, getPublisherClient } from "./client";
 

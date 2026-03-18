@@ -11,7 +11,7 @@ import type { AutoTaggingJobData } from "@norish/queue/contracts/job-types";
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { generateTagsForRecipe } from "@norish/api/ai/auto-tagger";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import { getRecipeFull } from "@norish/db";
 import { db } from "@norish/db/drizzle";

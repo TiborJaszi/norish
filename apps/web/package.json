@@ -1,6 +1,6 @@
 {
   "name": "@norish/web",
-  "version": "0.17.1-beta",
+  "version": "0.17.3-beta",
   "private": true,
   "type": "module",
   "scripts": {
@@ -40,6 +40,7 @@
     "@norish/queue": "workspace:*",
     "@norish/shared": "workspace:*",
     "@norish/shared-react": "workspace:*",
+    "@norish/shared-server": "workspace:*",
     "@norish/trpc": "workspace:*",
     "@norish/ui": "workspace:*",
     "@tanstack/react-query": "catalog:",

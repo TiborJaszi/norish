@@ -8,7 +8,7 @@
 import type { Queue } from "bullmq";
 import type { AddImportJobResult, RecipeImportJobData } from "@norish/queue/contracts/job-types";
 
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import { recipeExistsByUrlForPolicy } from "@norish/db";
 

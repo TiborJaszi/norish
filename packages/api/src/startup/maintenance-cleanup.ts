@@ -1,4 +1,4 @@
-import { serverLogger } from "@norish/api/logger";
+import { serverLogger } from "@norish/shared-server/logger";
 import {
   cleanupOrphanedAvatars,
   cleanupOrphanedImages,

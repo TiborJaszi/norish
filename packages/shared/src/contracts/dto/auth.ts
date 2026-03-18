@@ -36,7 +36,7 @@ export type ApiKeyVerifyInput = {
 export type ApiKeyVerifyResult = {
   valid: boolean;
   key?: {
-    userId: string;
+    referenceId: string;
   } | null;
 };
 

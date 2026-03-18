@@ -6,7 +6,7 @@
  */
 
 import Redis from "ioredis";
-import { createLogger } from "@norish/api/logger";
+import { createLogger, redactUrl } from "@norish/shared-server/logger";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 
 const log = createLogger("redis");
@@ -49,7 +49,7 @@ export async function getPublisherClient(): Promise<Redis> {
 }
 
 async function connectPublisher(): Promise<Redis> {
-  log.info({ url: SERVER_CONFIG.REDIS_URL }, "Connecting to Redis");
+  log.info({ url: redactUrl(SERVER_CONFIG.REDIS_URL) }, "Connecting to Redis");
 
   const client = new Redis(SERVER_CONFIG.REDIS_URL, {
     lazyConnect: true,

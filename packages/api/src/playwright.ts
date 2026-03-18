@@ -3,7 +3,7 @@ import type { Browser } from "playwright-core";
 import dns from "dns/promises";
 
 import { chromium } from "playwright-core";
-import { serverLogger as log } from "@norish/api/logger";
+import { serverLogger as log } from "@norish/shared-server/logger";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 
 let browser: Browser | null = null;

@@ -35,7 +35,7 @@ vi.mock("@norish/db/repositories/tags", () => ({
   listAllTagNames: vi.fn(),
 }));
 
-vi.mock("@norish/api/ai/providers", () => ({
+vi.mock("@norish/shared-server/ai/providers", () => ({
   getModels: vi.fn().mockResolvedValue({
     model: {},
     providerName: "openai",
@@ -46,12 +46,12 @@ vi.mock("@norish/api/ai/providers", () => ({
   }),
 }));
 
-vi.mock("@norish/api/ai/prompts/loader", () => ({
+vi.mock("@norish/shared-server/ai/prompts/loader", () => ({
   loadPrompt: vi.fn().mockResolvedValue("Mock auto-tagging prompt template"),
   fillPrompt: vi.fn((template, _vars) => template),
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   aiLogger: {
     info: vi.fn(),
     debug: vi.fn(),

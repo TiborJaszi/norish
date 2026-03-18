@@ -74,7 +74,7 @@ describe("Password Auth Seed Config", () => {
     },
   }));
 
-  vi.mock("@norish/api/logger", () => ({
+  vi.mock("@norish/shared-server/logger", () => ({
     serverLogger: { info: vi.fn(), debug: vi.fn(), warn: vi.fn(), error: vi.fn() },
   }));
 

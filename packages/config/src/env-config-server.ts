@@ -1,6 +1,5 @@
 import fs from "node:fs";
 import path from "node:path";
-
 import { config } from "dotenv";
 import { z } from "zod";
 
@@ -56,6 +55,22 @@ const defaultYtDlpBinDir =
 
 if (envPath) {
   config({ path: envPath, quiet: true });
+}
+
+// ---------------------------------------------------------------------------
+// Component-based DATABASE_URL fallback: if DATABASE_URL is not provided,
+// assemble it from optional DATABASE_PORT, DATABASE, DATABASE_USER,
+// DATABASE_PASSWORD values and sane defaults.
+// ---------------------------------------------------------------------------
+if (!process.env.DATABASE_URL) {
+  const host = process.env.DATABASE_HOST ?? "localhost";
+  const port = process.env.DATABASE_PORT ?? "5432";
+  const db = process.env.DATABASE ?? "norish";
+  const user = process.env.DATABASE_USER ?? "postgres";
+  const password = process.env.DATABASE_PASSWORD ?? "norish";
+  const credentials = `${encodeURIComponent(user)}:${encodeURIComponent(password)}`;
+
+  process.env.DATABASE_URL = `postgresql://${credentials}@${host}:${port}/${db}`;
 }
 
 const isBuild =

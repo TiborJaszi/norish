@@ -9,7 +9,7 @@ import type {
 
 import z from "zod";
 import { eq, inArray, sql } from "drizzle-orm";
-import { dbLogger } from "@norish/api/logger";
+import { dbLogger } from "@norish/db/logger";
 import defaultUnits from "@norish/config/units.default.json";
 import {
   ServerConfigKeys,

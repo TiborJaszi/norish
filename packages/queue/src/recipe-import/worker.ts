@@ -9,8 +9,8 @@ import type { Job } from "bullmq";
 import type { RecipeImportJobData } from "@norish/queue/contracts/job-types";
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
-import { deleteRecipeImagesDir } from "@norish/api/downloader";
-import { createLogger } from "@norish/api/logger";
+import { deleteRecipeImagesDir } from "@norish/shared-server/media/storage";
+import { createLogger } from "@norish/shared-server/logger";
 import { parseRecipeFromUrl } from "@norish/api/parser";
 import { getAIConfig, getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import {

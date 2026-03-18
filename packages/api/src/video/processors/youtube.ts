@@ -2,7 +2,7 @@ import type { FullRecipeInsertDTO } from "@norish/shared/contracts/dto/recipe";
 import type { VideoProcessorContext } from "../types";
 
 import { transcribeAudio } from "@norish/api/ai/transcriber";
-import { videoLogger as log } from "@norish/api/logger";
+import { videoLogger as log } from "@norish/shared-server/logger";
 import { extractRecipeFromVideo } from "@norish/api/video/normalizer";
 import { downloadCaptions, parseVttFile } from "@norish/api/video/yt-dlp";
 

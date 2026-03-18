@@ -12,7 +12,7 @@ vi.mock("@norish/api/video/yt-dlp", () => ({
   getFfmpegPath: vi.fn().mockReturnValue("/usr/bin/ffmpeg"),
 }));
 
-vi.mock("@norish/api/downloader", () => ({
+vi.mock("@norish/shared-server/media/storage", () => ({
   convertToMp4: vi
     .fn()
     .mockResolvedValue({ filePath: "/tmp/video.mp4", converted: true, method: "remux" }),
@@ -21,7 +21,7 @@ vi.mock("@norish/api/downloader", () => ({
     .mockResolvedValue({ video: "/recipes/test-id/video-123.mp4", duration: 120 }),
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   parserLogger: {
     child: () => ({
       debug: vi.fn(),

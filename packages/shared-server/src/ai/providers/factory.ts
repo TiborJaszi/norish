@@ -13,7 +13,7 @@ import { createMistral } from "@ai-sdk/mistral";
 import { createOpenAI } from "@ai-sdk/openai";
 import { createOpenAICompatible } from "@ai-sdk/openai-compatible";
 import { createPerplexity } from "@ai-sdk/perplexity";
-import { createOllama } from "ollama-ai-provider-v2";
+import { createOllama } from "ai-sdk-ollama";
 import { getAIConfig } from "@norish/config/server-config-loader";
 import { aiLogger } from "@norish/shared-server/logger";
 
@@ -63,18 +63,13 @@ export function createModelsFromConfig(config: {
     case "ollama": {
       if (!endpoint) throw new Error("Endpoint is required for Ollama provider");
 
-      // Normalize endpoint: ensure it ends with /api for ollama-ai-provider-v2
-      let normalizedEndpoint = endpoint.replace(/\/+$/, "");
-
-      if (!normalizedEndpoint.endsWith("/api")) {
-        normalizedEndpoint = `${normalizedEndpoint}/api`;
-      }
-
-      const ollama = createOllama({ baseURL: normalizedEndpoint });
+      // ai-sdk-ollama uses the Ollama host directly (e.g. http://localhost:11434)
+      const ollamaBaseUrl = endpoint.replace(/\/+$/, "").replace(/\/api$/, "");
+      const ollama = createOllama({ baseURL: ollamaBaseUrl });
 
       return {
-        model: ollama(model),
-        visionModel: ollama(visionModel || model),
+        model: ollama(model, { structuredOutputs: true }),
+        visionModel: ollama(visionModel || model, { structuredOutputs: true }),
         providerName: "Ollama",
       };
     }

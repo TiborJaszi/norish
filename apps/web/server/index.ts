@@ -1,5 +1,5 @@
 import { initCaldavSync } from "@norish/api/caldav/event-listener";
-import { serverLogger as log } from "@norish/api/logger";
+import { redactUrl, serverLogger as log } from "@norish/shared-server/logger";
 import { createServer } from "@norish/api/startup/http-server";
 import { runStartupMaintenanceCleanup } from "@norish/api/startup/maintenance-cleanup";
 import { migrateGalleryImages } from "@norish/api/startup/migrate-gallery-images";
@@ -16,7 +16,7 @@ async function main() {
   log.info("-".repeat(50));
   log.info("Server configuration loaded:");
   log.info(`  Environment: ${config.NODE_ENV}`);
-  log.info(`  Database: ${config.DATABASE_URL}`);
+  log.info(`  Database: ${redactUrl(config.DATABASE_URL)}`);
   log.info(`  Auth URL: ${config.AUTH_URL}`);
   log.info(`  Upload dir: ${config.UPLOADS_DIR}`);
   log.info("-".repeat(50));

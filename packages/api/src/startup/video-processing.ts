@@ -1,4 +1,4 @@
-import { videoLogger } from "@norish/api/logger";
+import { videoLogger } from "@norish/shared-server/logger";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 
 export async function initializeVideoProcessing(): Promise<void> {

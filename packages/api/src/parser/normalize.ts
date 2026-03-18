@@ -16,7 +16,7 @@ import type { FullRecipeInsertDTO } from "@norish/shared/contracts/dto/recipe";
 
 import { randomUUID } from "crypto";
 
-import { parserLogger } from "@norish/api/logger";
+import { parserLogger } from "@norish/shared-server/logger";
 import { getUnits } from "@norish/config/server-config-loader";
 
 import {

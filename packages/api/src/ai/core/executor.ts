@@ -9,9 +9,9 @@ import type { ZodSchema } from "zod";
 import type { AIResult, ExecuteOptions, ImageContent, MessageContent } from "./types";
 
 import { generateText, Output } from "ai";
-import { aiLogger } from "@norish/api/logger";
+import { aiLogger } from "@norish/shared-server/logger";
 
-import { getGenerationSettings, getModels } from "../providers";
+import { getGenerationSettings, getModels } from "@norish/shared-server/ai/providers";
 
 import { isAIEnabled } from "./guards";
 import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "./types";

@@ -1,4 +1,4 @@
-import { aiLogger } from "@norish/api/logger";
+import { aiLogger } from "@norish/shared-server/logger";
 
 export async function testOIDCProvider(config: {
   issuer: string;

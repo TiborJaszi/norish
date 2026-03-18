@@ -4,8 +4,8 @@ import { extname, join } from "path";
 import { createGzip } from "zlib";
 
 import mime from "mime";
-import { resolveExistingWorkspacePath } from "@norish/api/lib/workspace-paths";
-import { serverLogger } from "@norish/api/logger";
+import { resolveExistingWorkspacePath } from "@norish/shared-server/lib/workspace-paths";
+import { serverLogger } from "@norish/shared-server/logger";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 
 const STATIC_EXCLUDED_PATHS = ["/", "/manifest.webmanifest", "/_next", "/api"];

@@ -12,7 +12,7 @@ vi.mock("@norish/db/repositories/server-config", () => ({
   getConfig: mockGetConfig,
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/db/logger", () => ({
   serverLogger: { info: vi.fn(), debug: vi.fn(), warn: vi.fn(), error: vi.fn() },
 }));
 

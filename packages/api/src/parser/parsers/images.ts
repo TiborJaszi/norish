@@ -4,7 +4,8 @@
  * Handles downloading and normalizing images from JSON-LD image fields.
  */
 
-import { downloadAllImagesFromJsonLd } from "@norish/api/downloader";
+import * as cheerio from "cheerio";
+import { downloadAllImagesFromJsonLd } from "@norish/shared-server/media/storage";
 import { MAX_RECIPE_IMAGES } from "@norish/shared/contracts/zod";
 
 export interface ParsedImage {
@@ -15,6 +16,156 @@ export interface ParsedImage {
 export interface ImageParseResult {
   images: ParsedImage[];
   primaryImage: string | undefined;
+}
+
+const IMAGE_ATTRIBUTES = [
+  "src",
+  "data-src",
+  "data-lazy-src",
+  "data-original",
+  "data-pin-media",
+  "data-srcset",
+  "srcset",
+];
+
+const CONTEXT_BLOCKLIST = [
+  "logo",
+  "icon",
+  "avatar",
+  "social",
+  "share",
+  "sprite",
+  "pixel",
+  "tracking",
+  "advert",
+  "banner",
+  "header",
+  "footer",
+  "nav",
+  "menu",
+  "breadcrumb",
+];
+
+const CONTEXT_BOOST = ["recipe", "hero", "featured", "main", "lead"];
+
+function containsKeyword(value: string, keywords: string[]): boolean {
+  return keywords.some((keyword) => value.includes(keyword));
+}
+
+function normalizeImageUrl(rawUrl: string, pageUrl?: string): string | null {
+  const trimmed = rawUrl.trim();
+
+  if (!trimmed) return null;
+  if (trimmed.startsWith("data:")) return null;
+  if (trimmed.endsWith(".svg")) return null;
+
+  try {
+    return pageUrl ? new URL(trimmed, pageUrl).toString() : trimmed;
+  } catch {
+    return null;
+  }
+}
+
+function parseSrcsetUrls(srcset: string): string[] {
+  return srcset
+    .split(",")
+    .map((candidate) => candidate.trim().split(/\s+/)[0])
+    .filter((candidate) => candidate.length > 0);
+}
+
+function collectRawSources($img: cheerio.Cheerio<cheerio.Element>): string[] {
+  const collected: string[] = [];
+
+  for (const attribute of IMAGE_ATTRIBUTES) {
+    const value = $img.attr(attribute);
+
+    if (!value) continue;
+
+    if (attribute.endsWith("srcset")) {
+      collected.push(...parseSrcsetUrls(value));
+      continue;
+    }
+
+    collected.push(value);
+  }
+
+  return collected;
+}
+
+export function extractImageCandidates(html: string, pageUrl?: string): string[] {
+  const $ = cheerio.load(html);
+  const urls = new Set<string>();
+
+  const metaSelectors = [
+    'meta[property="og:image"]',
+    'meta[property="og:image:url"]',
+    'meta[name="twitter:image"]',
+    'meta[property="twitter:image"]',
+  ];
+
+  for (const selector of metaSelectors) {
+    const metaUrl = $(selector).attr("content");
+    const normalized = metaUrl ? normalizeImageUrl(metaUrl, pageUrl) : null;
+
+    if (normalized) {
+      urls.add(normalized);
+    }
+  }
+
+  const candidates: { src: string; score: number }[] = [];
+
+  $("img").each((index, element) => {
+    const $img = $(element);
+
+    if ($img.parents("header, footer, nav").length > 0) return;
+
+    const role = ($img.attr("role") || "").toLowerCase();
+    const ariaHidden = ($img.attr("aria-hidden") || "").toLowerCase();
+
+    if (role === "presentation" || ariaHidden === "true") return;
+
+    const alt = ($img.attr("alt") || "").toLowerCase();
+    const className = ($img.attr("class") || "").toLowerCase();
+    const id = ($img.attr("id") || "").toLowerCase();
+    const parentContext = ($img.parents("article, main, figure").attr("class") || "").toLowerCase();
+    const context = `${alt} ${className} ${id} ${parentContext}`;
+
+    if (containsKeyword(context, CONTEXT_BLOCKLIST)) return;
+
+    const width = Number($img.attr("width")) || 0;
+    const height = Number($img.attr("height")) || 0;
+    const area = width * height;
+
+    for (const rawSource of collectRawSources($img)) {
+      const source = normalizeImageUrl(rawSource, pageUrl);
+
+      if (!source) continue;
+
+      const srcContext = `${context} ${source.toLowerCase()}`;
+
+      if (containsKeyword(srcContext, CONTEXT_BLOCKLIST)) continue;
+
+      let score = area > 0 ? area : 1_000;
+
+      if (containsKeyword(srcContext, CONTEXT_BOOST)) score += 15_000;
+      if ($img.parents("article, main, figure, picture").length > 0) score += 20_000;
+      if (alt.length > 10) score += 5_000;
+      if (index < 20) score += 1_000;
+      if (width > 500 && height > 300) score += 10_000;
+      if (width > 0 && height > 0 && (width < 120 || height < 120)) score -= 40_000;
+
+      candidates.push({ src: source, score });
+    }
+  });
+
+  candidates
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 10)
+    .forEach((candidate) => {
+      urls.add(candidate.src);
+    });
+
+  return [...urls].slice(0, 5);
 }
 
 /**

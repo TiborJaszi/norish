@@ -5,6 +5,7 @@
 import type { TranscriptionProvider } from "@norish/config/zod/server-config";
 import type { AIProvider, AvailableModel } from "./types";
 
+import { Ollama } from "ollama";
 import { aiLogger } from "@norish/shared-server/logger";
 
 
@@ -220,31 +221,39 @@ async function listModelsWithConfig(provider: string, apiKey: string): Promise<A
 }
 
 // ============================================================================
-// Ollama (different API structure)
+// Ollama (uses official client)
 // ============================================================================
 
+/** Vision model family keywords from Ollama model metadata. */
+const VISION_FAMILIES = ["clip", "mllama"];
+
+/** Vision model name keywords as a fallback heuristic. */
+const VISION_NAME_KEYWORDS = ["llava", "vision", "bakllava"];
+
 /**
- * List available models from Ollama.
+ * Detect if an Ollama model supports vision from its metadata + name.
+ */
+function isVisionModel(name: string, families?: string[]): boolean {
+  if (families?.some((f) => VISION_FAMILIES.includes(f.toLowerCase()))) return true;
+
+  const lower = name.toLowerCase();
+
+  return VISION_NAME_KEYWORDS.some((kw) => lower.includes(kw));
+}
+
+/**
+ * List available models from Ollama using the official client.
  */
 export async function listOllamaModels(endpoint: string): Promise<AvailableModel[]> {
   try {
-    const baseUrl = endpoint.replace(/\/+$/, "");
-    const response = await fetch(`${baseUrl}/api/tags`, {
-      signal: AbortSignal.timeout(5000),
-    });
+    const host = endpoint.replace(/\/+$/, "").replace(/\/api$/, "");
+    const client = new Ollama({ host });
+    const response = await client.list();
 
-    if (!response.ok) return [];
-
-    const data = await response.json();
-    const models: Array<{ name: string }> = data.models || [];
-
-    return models.map((m) => ({
+    return response.models.map((m) => ({
       id: m.name,
       name: m.name,
-      supportsVision:
-        m.name.toLowerCase().includes("llava") ||
-        m.name.toLowerCase().includes("vision") ||
-        m.name.toLowerCase().includes("bakllava"),
+      supportsVision: isVisionModel(m.name, m.details?.families),
     }));
   } catch {
     return [];

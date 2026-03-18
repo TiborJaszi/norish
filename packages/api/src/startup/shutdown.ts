@@ -9,7 +9,7 @@
 import type { Server } from "node:http";
 
 import { stopCaldavSync } from "@norish/api/caldav/event-listener";
-import { serverLogger as log } from "@norish/api/logger";
+import { serverLogger as log } from "@norish/shared-server/logger";
 import { closeRedisConnections } from "@norish/queue/redis/client";
 import { stopWorkers } from "@norish/queue/start-workers";
 

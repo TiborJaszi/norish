@@ -4,7 +4,7 @@ import type { CalendarSubscriptionEvents } from "@norish/trpc/routers/calendar/t
 import type { RecipeSubscriptionEvents } from "@norish/trpc/routers/recipes/types";
 
 import superjson from "superjson";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getCaldavConfigDecrypted } from "@norish/db/repositories/caldav-config";
 import { getCaldavSyncStatusByItemId } from "@norish/db/repositories/caldav-sync-status";
 import { addCaldavSyncJob } from "@norish/queue/caldav-sync/producer";

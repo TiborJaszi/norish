@@ -65,7 +65,7 @@ export {
   type ModelCapabilities,
   type AvailableModel,
   type AIProvider,
-} from "./providers";
+} from "@norish/shared-server/ai/providers";
 
 // ============================================================================
 // Prompts - Template loading and building
@@ -104,8 +104,8 @@ export {
 } from "./features/recipe-extraction";
 
 // Unit conversion
-export { convertRecipeDataWithAI, type ConversionResult } from "./unit-converter";
-export type { ConversionOutput } from "./unit-converter";
+export { convertRecipeDataWithAI, type ConversionResult } from "@norish/shared-server/ai/unit-converter";
+export type { ConversionOutput } from "@norish/shared-server/ai/unit-converter";
 
 // Nutrition estimation
 export {
@@ -131,7 +131,7 @@ export { transcribeAudio } from "./transcriber";
 
 export { recipeExtractionSchema } from "./schemas/recipe.schema";
 export { nutritionEstimationSchema } from "./schemas/nutrition.schema";
-export { conversionSchema } from "./schemas/conversion.schema";
+export { conversionSchema } from "@norish/shared-server/ai/schemas/conversion.schema";
 export { autoTaggingSchema } from "./schemas/auto-tagging.schema";
 
 // ============================================================================
@@ -140,7 +140,8 @@ export { autoTaggingSchema } from "./schemas/auto-tagging.schema";
 
 export {
   extractSanitizedBody,
-  extractImageCandidates,
   normalizeIngredient,
   normalizeStep,
-} from "./helpers";
+} from "@norish/shared-server/ai/helpers";
+
+export { extractImageCandidates } from "../parser/parsers";

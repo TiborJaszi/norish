@@ -4,7 +4,7 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 import { normalizeRecipeFromJson } from "@norish/api/parser/normalize";
 
 // Mock dependencies
-vi.mock("@norish/api/downloader", () => ({
+vi.mock("@norish/shared-server/media/storage", () => ({
   downloadAllImagesFromJsonLd: vi.fn().mockResolvedValue([]),
 }));
 

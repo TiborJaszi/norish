@@ -1,4 +1,4 @@
-import type { AIResult } from "@norish/api/ai/types/result";
+import type { AIResult } from "@norish/shared-server/ai/types/result";
 import type { FullRecipeInsertDTO } from "@norish/shared/contracts/dto/recipe";
 import type { VideoMetadata } from "./types";
 
@@ -9,11 +9,11 @@ import {
   validateExtractionOutput,
 } from "@norish/api/ai/features/recipe-extraction/normalizer";
 import { buildVideoExtractionPrompt } from "@norish/api/ai/prompts/builder";
-import { getGenerationSettings, getModels } from "@norish/api/ai/providers";
+import { getGenerationSettings, getModels } from "@norish/shared-server/ai/providers";
 import { recipeExtractionSchema } from "@norish/api/ai/schemas/recipe.schema";
-import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "@norish/api/ai/types/result";
-import { downloadImage } from "@norish/api/downloader";
-import { videoLogger } from "@norish/api/logger";
+import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "@norish/shared-server/ai/types/result";
+import { downloadImage } from "@norish/shared-server/media/storage";
+import { videoLogger } from "@norish/shared-server/logger";
 import { isAIEnabled } from "@norish/config/server-config-loader";
 
 

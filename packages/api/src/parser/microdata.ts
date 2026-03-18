@@ -3,7 +3,20 @@
 // @ts-expect-error microdata-node has no types
 import microdata from "microdata-node";
 import { normalizeRecipeFromJson } from "@norish/api/parser/normalize";
+import { extractImageCandidates } from "./parsers";
 import { FullRecipeInsertDTO } from "@norish/shared/contracts/dto/recipe";
+
+function hasImage(node: unknown): boolean {
+  if (!node || typeof node !== "object") return false;
+
+  const imageField = (node as { image?: unknown }).image;
+
+  if (typeof imageField === "string") return imageField.trim().length > 0;
+  if (Array.isArray(imageField)) return imageField.length > 0;
+  if (imageField && typeof imageField === "object") return true;
+
+  return false;
+}
 
 /**
  * Extract microdata items and return a best-effort Recipe object array.
@@ -39,7 +52,17 @@ export async function tryExtractRecipeFromMicrodata(
 
   if (!nodes || nodes.length === 0) return null;
 
-  const parsed = await normalizeRecipeFromJson(nodes[0], recipeId);
+  const firstNode = nodes[0] as Record<string, unknown>;
+
+  if (!hasImage(firstNode)) {
+    const candidates = extractImageCandidates(htmlContent, url);
+
+    if (candidates.length > 0) {
+      firstNode.image = candidates;
+    }
+  }
+
+  const parsed = await normalizeRecipeFromJson(firstNode, recipeId);
 
   parsed && (parsed.url = url);
 

@@ -10,7 +10,7 @@ import type { NutritionEstimationJobData } from "@norish/queue/contracts/job-typ
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { estimateNutritionFromIngredients } from "@norish/api/ai/nutrition-estimator";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import { getRecipeFull, updateRecipeWithRefs } from "@norish/db";
 import { getBullClient } from "@norish/queue/redis/bullmq";

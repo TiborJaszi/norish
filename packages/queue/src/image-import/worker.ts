@@ -11,8 +11,8 @@ import type { ImageImportJobData } from "@norish/queue/contracts/job-types";
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { extractRecipeFromImages } from "@norish/api/ai/image-recipe-parser";
-import { deleteRecipeImagesDir, saveImageBytes } from "@norish/api/downloader";
-import { createLogger } from "@norish/api/logger";
+import { deleteRecipeImagesDir, saveImageBytes } from "@norish/shared-server/media/storage";
+import { createLogger } from "@norish/shared-server/logger";
 import { getAIConfig, getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import {
   addRecipeImages,

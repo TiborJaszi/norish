@@ -9,7 +9,7 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle";
 import { APIError, createAuthMiddleware } from "better-auth/api";
 import { nextCookies } from "better-auth/next-js";
 import { genericOAuth } from "better-auth/plugins";
-import { authLogger } from "@norish/api/logger";
+import { authLogger } from "@norish/shared-server/logger";
 import { AUTH_SECRET, encrypt, hmacIndex, safeDecrypt } from "@norish/auth/crypto";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 import { isRegistrationEnabled } from "@norish/config/server-config-loader";
@@ -293,6 +293,10 @@ function createAuth() {
       ...(process.env.NODE_ENV === "development" && {
         skipStateCookieCheck: true,
       }),
+      accountLinking: {
+        enabled: true,
+        trustedProviders: ["oidc", "google", "github"],
+      },
     },
     socialProviders: buildSocialProviders(),
     databaseHooks: {

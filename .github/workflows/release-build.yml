@@ -11,6 +11,10 @@ on:
     branches:
       - main
 
+concurrency:
+  group: release-main
+  cancel-in-progress: true
+
 permissions:
   contents: write
   packages: write
@@ -53,7 +57,7 @@ jobs:
         id: check_tag
         run: |
           TAG="${{ steps.compute_tag.outputs.tag }}"
-          if git tag --list "$TAG" | grep "$TAG" > /dev/null; then
+          if git show-ref --tags --verify --quiet "refs/tags/$TAG"; then
             echo "exists=true" >> $GITHUB_OUTPUT
           else
             echo "exists=false" >> $GITHUB_OUTPUT
@@ -65,17 +69,16 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Create tag
+      - name: Create and push tag
         if: steps.check_tag.outputs.exists == 'false'
         run: |
           TAG="${{ steps.compute_tag.outputs.tag }}"
+          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" > /dev/null; then
+            echo "Tag $TAG already exists on origin; skipping tag creation"
+            exit 0
+          fi
           git tag "$TAG"
-
-      - name: Push tag
-        if: steps.check_tag.outputs.exists == 'false'
-        run: |
-          TAG="${{ steps.compute_tag.outputs.tag }}"
-          git push origin "$TAG"
+          git push origin "refs/tags/$TAG"
 
       - name: Set image tags
         id: image_tags

@@ -1,7 +1,7 @@
 import type { OIDCClaimConfig } from "@norish/config/zod/server-config";
 import type { HouseholdUserInfo } from "@norish/trpc/routers/households/types";
 
-import { authLogger } from "@norish/api/logger";
+import { authLogger } from "@norish/shared-server/logger";
 import { invalidateHouseholdCacheForUsers } from "@norish/db/cached-household";
 import {
   addUserToHousehold,

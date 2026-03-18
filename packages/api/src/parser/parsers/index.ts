@@ -14,7 +14,7 @@ export type { ParsedStep } from "./steps";
 export { parseIngredients } from "./ingredients";
 export type { ParsedIngredient, IngredientParseResult } from "./ingredients";
 
-export { parseImages } from "./images";
+export { parseImages, extractImageCandidates } from "./images";
 export type { ParsedImage, ImageParseResult } from "./images";
 
 export { parseVideos } from "./videos";

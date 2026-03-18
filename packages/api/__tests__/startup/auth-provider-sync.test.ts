@@ -20,7 +20,7 @@ vi.mock("@norish/auth/provider-cache", () => ({
   setAuthProviderCache: vi.fn(),
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   serverLogger: { info: vi.fn(), debug: vi.fn(), warn: vi.fn(), error: vi.fn() },
 }));
 
@@ -37,7 +37,7 @@ vi.mock("@norish/config/content-indicators.default.json", () => ({
 vi.mock("@norish/config/recurrence-config.default.json", () => ({
   default: { locales: {} },
 }));
-vi.mock("@norish/api/ai/prompts/loader", () => ({
+vi.mock("@norish/shared-server/ai/prompts/loader", () => ({
   loadDefaultPrompts: vi.fn().mockReturnValue({
     recipeExtraction: "mock recipe extraction prompt",
     unitConversion: "mock unit conversion prompt",

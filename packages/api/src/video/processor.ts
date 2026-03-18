@@ -1,7 +1,7 @@
 import type { FullRecipeInsertDTO } from "@norish/shared/contracts/dto/recipe";
 import type { SiteAuthTokenDecryptedDto } from "@norish/shared/contracts/dto/site-auth-tokens";
 
-import { videoLogger as log } from "@norish/api/logger";
+import { videoLogger as log } from "@norish/shared-server/logger";
 import { isVideoParsingEnabled } from "@norish/config/server-config-loader";
 
 import { VideoProcessorFactory } from "./processor-factory";

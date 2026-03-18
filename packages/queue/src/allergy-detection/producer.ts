@@ -11,7 +11,7 @@ import type {
   AllergyDetectionJobData,
 } from "@norish/queue/contracts/job-types";
 
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getAIConfig, isAIEnabled } from "@norish/config/server-config-loader";
 import { getAllergiesForUsers, getHouseholdMemberIds } from "@norish/db";
 

@@ -11,7 +11,7 @@ import type { AllergyDetectionJobData } from "@norish/queue/contracts/job-types"
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { detectAllergiesInRecipe } from "@norish/api/ai/allergy-detector";
-import { createLogger } from "@norish/api/logger";
+import { createLogger } from "@norish/shared-server/logger";
 import { getRecipePermissionPolicy } from "@norish/config/server-config-loader";
 import { getAllergiesForUsers, getHouseholdMemberIds, getRecipeFull } from "@norish/db";
 import { db } from "@norish/db/drizzle";

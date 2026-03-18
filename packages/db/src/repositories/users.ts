@@ -1,7 +1,7 @@
 import type { User } from "@norish/shared/contracts/dto/user";
 
 import { and, eq, inArray, sql } from "drizzle-orm";
-import { authLogger } from "@norish/api/logger";
+import { authLogger } from "@norish/db/logger";
 import { decrypt, encrypt, hmacIndex } from "@norish/auth/crypto";
 
 import { db } from "../drizzle";

@@ -1,6 +1,6 @@
 {
   "name": "@norish/shared-server",
-  "version": "0.17.0-beta",
+  "version": "0.17.3-beta",
   "private": true,
   "type": "module",
   "exports": {
@@ -11,17 +11,32 @@
     "./recipes/randomizer": "./src/recipes/randomizer.ts",
     "./config/defaults": "./src/config/defaults.ts",
     "./archive/parser": "./src/archive/parser.ts",
+    "./archive/mealie-parser": "./src/archive/mealie-parser.ts",
+    "./archive/mealie-legacy-parser": "./src/archive/mealie-legacy-parser.ts",
+    "./archive/mela-parser": "./src/archive/mela-parser.ts",
+    "./archive/paprika-parser": "./src/archive/paprika-parser.ts",
+    "./archive/tandoor-parser": "./src/archive/tandoor-parser.ts",
+    "./archive/parser-helpers": "./src/archive/parser-helpers.ts",
     "./caldav/client": "./src/caldav/client.ts",
     "./caldav/sync": "./src/caldav/sync.ts",
+    "./ai/helpers": "./src/ai/helpers.ts",
+    "./ai/prompts/loader": "./src/ai/prompts/loader.ts",
     "./ai/providers": "./src/ai/providers/index.ts",
+    "./ai/providers/factory": "./src/ai/providers/factory.ts",
+    "./ai/providers/listing": "./src/ai/providers/listing.ts",
+    "./ai/providers/types": "./src/ai/providers/types.ts",
+    "./ai/schemas/conversion.schema": "./src/ai/schemas/conversion.schema.ts",
+    "./ai/types/result": "./src/ai/types/result.ts",
     "./ai/unit-converter": "./src/ai/unit-converter.ts",
     "./ai/utils/category-matcher": "./src/ai/utils/category-matcher.ts",
+    "./caldav/ics-helpers": "./src/caldav/ics-helpers.ts",
     "./lib/workspace-paths": "./src/lib/workspace-paths.ts"
   },
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.json --noCheck",
     "lint": "eslint --flag unstable_native_nodejs_ts_config",
     "format": "prettier --check . --ignore-path ../../.gitignore",
+    "test": "vitest run --config ./vitest.config.ts",
     "typecheck": "tsc --noEmit --noCheck",
     "clean": "git clean -xdf .cache .turbo node_modules dist"
   },
@@ -44,7 +59,8 @@
     "fuse.js": "catalog:",
     "heic-convert": "^2.1.0",
     "jszip": "catalog:",
-    "ollama-ai-provider-v2": "^3.3.1",
+    "ai-sdk-ollama": "^3.8.1",
+    "ollama": "^0.6.3",
     "pino": "^10.3.0",
     "pino-pretty": "^13.1.3",
     "sharp": "^0.34.5",
@@ -57,7 +73,8 @@
     "@norish/prettier-config": "workspace:*",
     "@norish/tsconfig": "workspace:*",
     "eslint": "catalog:",
-    "prettier": "catalog:"
+    "prettier": "catalog:",
+    "vitest": "catalog:"
   },
   "prettier": "@norish/prettier-config"
 }

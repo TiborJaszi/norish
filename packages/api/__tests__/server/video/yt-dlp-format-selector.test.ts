@@ -6,7 +6,17 @@ import { DOWNLOAD_VIDEO_FORMAT_SELECTOR } from "@norish/api/video/yt-dlp";
 describe("download video format selector", () => {
   it("prioritizes progressive mp4 before DASH-only variants", () => {
     expect(DOWNLOAD_VIDEO_FORMAT_SELECTOR).toBe(
-      "best[ext=mp4]/bestvideo[vcodec^=avc1][ext=mp4]+bestaudio[ext=m4a]/bestvideo[ext=mp4]+bestaudio[ext=m4a]/best"
+      "best[vcodec^=avc1][ext=mp4]/bestvideo[vcodec^=avc1][ext=mp4]+bestaudio[ext=m4a]/bestvideo[vcodec^=avc1]+bestaudio[acodec^=mp4a]/best[ext=mp4]/best"
     );
+  });
+
+  it("keeps compatibility-first fallback ordering", () => {
+    const parts = DOWNLOAD_VIDEO_FORMAT_SELECTOR.split("/");
+
+    expect(parts[0]).toBe("best[vcodec^=avc1][ext=mp4]");
+    expect(parts[1]).toBe("bestvideo[vcodec^=avc1][ext=mp4]+bestaudio[ext=m4a]");
+    expect(parts[2]).toBe("bestvideo[vcodec^=avc1]+bestaudio[acodec^=mp4a]");
+    expect(parts[3]).toBe("best[ext=mp4]");
+    expect(parts[4]).toBe("best");
   });
 });

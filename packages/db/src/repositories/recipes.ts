@@ -17,7 +17,7 @@ import type { FilterMode, SearchField, SortOrder } from "@norish/shared/contract
 
 import z from "zod";
 import { and, asc, desc, eq, ilike, inArray, lte, or, sql } from "drizzle-orm";
-import { dbLogger } from "@norish/api/logger";
+import { dbLogger } from "@norish/db/logger";
 import {
   DEFAULT_RECIPE_PERMISSION_POLICY,
   ServerConfigKeys,

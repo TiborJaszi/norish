@@ -2,7 +2,7 @@ import type { StepDto, StepInsertDto } from "@norish/shared/contracts/dto/steps"
 
 import { and, eq, inArray } from "drizzle-orm";
 import { z } from "zod";
-import { dbLogger } from "@norish/api/logger";
+import { dbLogger } from "@norish/db/logger";
 import { stepImages, steps } from "@norish/db/schema";
 import { StepSelectBaseSchema } from "@norish/shared/contracts/zod/steps";
 import { stripHtmlTags } from "@norish/shared/lib/helpers";

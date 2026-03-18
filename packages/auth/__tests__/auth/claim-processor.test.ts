@@ -40,7 +40,7 @@ vi.mock("@norish/trpc/routers/households/emitter", () => ({
   },
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   authLogger: {
     debug: vi.fn(),
     info: vi.fn(),

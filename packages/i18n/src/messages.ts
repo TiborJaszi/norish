@@ -84,6 +84,24 @@ const MESSAGE_LOADERS: Record<string, Partial<Record<MessageSection, MessageLoad
     navbar: () => import("./messages/ru/navbar.json"),
     auth: () => import("./messages/ru/auth.json"),
   },
+  pl: {
+    common: () => import("./messages/pl/common.json"),
+    recipes: () => import("./messages/pl/recipes.json"),
+    groceries: () => import("./messages/pl/groceries.json"),
+    calendar: () => import("./messages/pl/calendar.json"),
+    settings: () => import("./messages/pl/settings.json"),
+    navbar: () => import("./messages/pl/navbar.json"),
+    auth: () => import("./messages/pl/auth.json"),
+  },
+  da: {
+    common: () => import("./messages/da/common.json"),
+    recipes: () => import("./messages/da/recipes.json"),
+    groceries: () => import("./messages/da/groceries.json"),
+    calendar: () => import("./messages/da/calendar.json"),
+    settings: () => import("./messages/da/settings.json"),
+    navbar: () => import("./messages/da/navbar.json"),
+    auth: () => import("./messages/da/auth.json"),
+  },
 };
 
 export async function loadLocaleMessages(locale: string): Promise<Record<string, unknown>> {

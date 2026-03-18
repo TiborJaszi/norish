@@ -1,15 +1,15 @@
 import type { RecipeCategory } from "@norish/shared/contracts";
-import type { AIResult } from "./types/result";
+import type { AIResult } from "@norish/shared-server/ai/types/result";
 
 import { generateText, Output } from "ai";
 import { z } from "zod";
-import { aiLogger } from "@norish/api/logger";
+import { aiLogger } from "@norish/shared-server/logger";
 import { isAIEnabled } from "@norish/config/server-config-loader";
 
 
-import { getGenerationSettings, getModels } from "./providers";
-import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "./types/result";
-import { matchCategory } from "./utils/category-matcher";
+import { getGenerationSettings, getModels } from "@norish/shared-server/ai/providers";
+import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "@norish/shared-server/ai/types/result";
+import { matchCategory } from "@norish/shared-server/ai/utils/category-matcher";
 
 const autoCategorizationSchema = z
   .object({

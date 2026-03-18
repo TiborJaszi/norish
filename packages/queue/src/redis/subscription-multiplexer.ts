@@ -17,7 +17,7 @@ import type Redis from "ioredis";
 import { EventEmitter } from "node:events";
 
 import superjson from "superjson";
-import { redisLogger as log } from "@norish/api/logger";
+import { redisLogger as log } from "@norish/shared-server/logger";
 
 import { createSubscriberClient } from "./client";
 

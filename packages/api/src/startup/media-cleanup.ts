@@ -3,7 +3,7 @@ import type { Dirent } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 
-import { schedulerLogger } from "@norish/api/logger";
+import { schedulerLogger } from "@norish/shared-server/logger";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";
 import { db } from "@norish/db/drizzle";
 import { getAllUserAvatars } from "@norish/db/repositories";

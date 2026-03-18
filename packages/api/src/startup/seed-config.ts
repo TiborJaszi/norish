@@ -8,8 +8,8 @@ import type {
   TimerKeywordsConfig,
 } from "@norish/db/zodSchemas/server-config";
 
-import { loadDefaultPrompts } from "@norish/api/ai/prompts/loader";
-import { serverLogger } from "@norish/api/logger";
+import { loadDefaultPrompts } from "@norish/shared-server/ai/prompts/loader";
+import { serverLogger } from "@norish/shared-server/logger";
 import { setAuthProviderCache } from "@norish/auth/provider-cache";
 import defaultContentIndicators from "@norish/config/content-indicators.default.json";
 import { SERVER_CONFIG } from "@norish/config/env-config-server";

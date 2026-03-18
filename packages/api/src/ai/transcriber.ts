@@ -14,7 +14,7 @@
 
 import type { Experimental_TranscriptionResult as TranscriptionResult } from "ai";
 import type { TranscriptionProvider } from "@norish/config/zod/server-config";
-import type { AIResult } from "./types/result";
+import type { AIResult } from "@norish/shared-server/ai/types/result";
 
 import { createReadStream } from "node:fs";
 import { readFile } from "node:fs/promises";
@@ -25,12 +25,12 @@ import { createGroq } from "@ai-sdk/groq";
 import { createOpenAI } from "@ai-sdk/openai";
 import { experimental_transcribe as transcribe } from "ai";
 import OpenAI from "openai";
-import { aiLogger } from "@norish/api/logger";
+import { aiLogger } from "@norish/shared-server/logger";
 import { getAIConfig, getVideoConfig } from "@norish/config/server-config-loader";
 import { isCloudTranscriptionProvider } from "@norish/config/zod/server-config";
 
 
-import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "./types/result";
+import { aiError, aiSuccess, getErrorMessage, mapErrorToCode } from "@norish/shared-server/ai/types/result";
 
 // ============================================================================
 // Shared Helpers

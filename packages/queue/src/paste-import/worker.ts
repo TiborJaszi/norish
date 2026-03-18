@@ -11,8 +11,8 @@ import type { FullRecipeInsertDTO } from "@norish/shared/contracts";
 import type { PolicyEmitContext } from "@norish/trpc/helpers";
 
 import { extractRecipeWithAI } from "@norish/api/ai/recipe-parser";
-import { deleteRecipeImagesDir } from "@norish/api/downloader";
-import { createLogger } from "@norish/api/logger";
+import { deleteRecipeImagesDir } from "@norish/shared-server/media/storage";
+import { createLogger } from "@norish/shared-server/logger";
 import { extractRecipeNodesFromJsonLd } from "@norish/api/parser/jsonld";
 import { normalizeRecipeFromJson } from "@norish/api/parser/normalize";
 import {

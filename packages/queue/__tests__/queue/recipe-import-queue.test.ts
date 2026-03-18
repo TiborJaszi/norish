@@ -132,7 +132,7 @@ const mockLogger = {
   child: vi.fn(() => mockLogger),
 };
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   createLogger: vi.fn(() => mockLogger),
   parserLogger: mockLogger,
 }));

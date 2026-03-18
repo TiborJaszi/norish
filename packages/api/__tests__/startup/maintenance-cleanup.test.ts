@@ -22,7 +22,7 @@ vi.mock("@norish/queue/scheduler/old-groceries-cleanup", () => ({
   cleanupOldGroceries: mockCleanupOldGroceries,
 }));
 
-vi.mock("@norish/api/logger", () => ({
+vi.mock("@norish/shared-server/logger", () => ({
   serverLogger: {
     info: mockInfo,
     debug: vi.fn(),

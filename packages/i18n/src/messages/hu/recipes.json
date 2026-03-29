@@ -73,7 +73,7 @@
   },
   "deleteModal": {
     "title": "Recept törlése",
-    "confirmMessage": "Biztosan törölni szeretnéd: „{recipeName}"?",
+    "confirmMessage": "Biztosan törölni szeretnéd: \u201e{recipeName}\u201d?",
     "warning": "Ez a művelet nem vonható vissza."
   },
   "form": {
@@ -97,7 +97,7 @@
     "descriptionPlaceholder": "Rövid leírás arról, mi teszi különlegessé ezt a receptet...",
     "notes": "Megjegyzések",
     "notesPlaceholder": "Adj hozzá előkészítési megjegyzéseket, módosításokat vagy tálalási tippeket ehhez a recepthez...",
-    "ingredientsHelp": "Írd be a hozzávalókat, például „2 csésze liszt" – automatikusan feldolgozzuk a mennyiségeket és az egységeket.",
+    "ingredientsHelp": "Írd be a hozzávalókat, például \"2 csésze liszt\" – automatikusan feldolgozzuk a mennyiségeket és az egységeket.",
     "instructionsHelp": "Írj egyértelmű lépésenkénti utasításokat. Nyomj Entert a következő lépéshez.",
     "tagsHelp": "Írj be címkéket, és kattints a javaslatokra a hozzáadáshoz. A kiválasztott címkék kékek, az új címkéknek szaggatott szegélyük van.",
     "tagsAndCategories": "Címkék és kategóriák",

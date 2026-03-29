@@ -46,7 +46,7 @@ describe("extractImageCandidates", () => {
     expect(urls).toContain("https://example.com/images/lasagna.jpg");
   });
 
-  it("keeps social meta image and excludes logo-like img tags", () => {
+  it("returns only og:image when present, ignoring all img tags", () => {
     const html = `
       <html>
         <head>
@@ -63,8 +63,10 @@ describe("extractImageCandidates", () => {
 
     const urls = extractImageCandidates(html, "https://example.com");
 
+    // og:image is trusted and returned exclusively — no HTML img candidates added
     expect(urls).toContain("https://cdn.example.com/social-card.jpg");
-    expect(urls).toContain("https://example.com/images/curry.jpg");
+    expect(urls).toHaveLength(1);
+    expect(urls).not.toContain("https://example.com/images/curry.jpg");
     expect(urls).not.toContain("https://example.com/assets/brand-logo.jpg");
   });
 });

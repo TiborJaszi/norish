@@ -215,6 +215,38 @@ describe("parseTimerDurations", () => {
       expect(matches[0].durationSeconds).toBe(1.5 * 3600);
     });
 
+    it("handles comma as decimal separator", () => {
+      const matches = parseTimerDurations("1,5 óra", {
+        hours: ["óra"],
+        minutes: ["perc"],
+        seconds: ["másodperc"],
+      });
+
+      expect(matches).toHaveLength(1);
+      expect(matches[0].durationSeconds).toBe(1.5 * 3600);
+      expect(matches[0].originalText).toBe("1,5 óra");
+    });
+
+    it("handles range with comma decimal separator", () => {
+      const matches = parseTimerDurations("1-1,5 óra", {
+        hours: ["óra"],
+        minutes: ["perc"],
+        seconds: ["másodperc"],
+      });
+
+      expect(matches).toHaveLength(1);
+      expect(matches[0].durationSeconds).toBe(1.5 * 3600);
+      expect(matches[0].originalText).toBe("1-1,5 óra");
+    });
+
+    it("does not treat list comma as decimal separator", () => {
+      const matches = parseTimerDurations("10 mins, 5 hrs");
+
+      expect(matches).toHaveLength(2);
+      expect(matches[0].durationSeconds).toBe(600);
+      expect(matches[1].durationSeconds).toBe(5 * 3600);
+    });
+
     it("handles case insensitivity", () => {
       const matches = parseTimerDurations("Bake for 20 MINUTES");
 

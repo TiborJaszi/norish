@@ -1,0 +1,215 @@
+{
+  "actions": {
+    "save": "Mentés",
+    "cancel": "Mégse",
+    "delete": "Törlés",
+    "duplicate": "Másolás",
+    "edit": "Szerkesztés",
+    "create": "Létrehozás",
+    "add": "Hozzáadás",
+    "remove": "Eltávolítás",
+    "close": "Bezárás",
+    "apply": "Alkalmaz",
+    "reset": "Visszaállítás",
+    "clear": "Törlés",
+    "confirm": "Megerősítés",
+    "back": "Vissza",
+    "next": "Következő",
+    "done": "Kész",
+    "retry": "Újrapróbálás",
+    "submit": "Beküldés",
+    "search": "Keresés",
+    "filter": "Szűrés",
+    "sort": "Rendezés",
+    "import": "Importálás",
+    "aiImport": "AI importálás",
+    "importWithAI": "Importálás AI-jal",
+    "goHome": "Főoldalra",
+    "test": "Teszt",
+    "format": "Formázás",
+    "restoreDefaults": "Alapértelmezések visszaállítása",
+    "saveChanges": "Változások mentése",
+    "revealSecret": "Titok felfedése",
+    "hideSecret": "Titok elrejtése",
+    "enterNewValue": "Új érték megadása",
+    "cancelEditing": "Szerkesztés megszakítása"
+  },
+  "status": {
+    "loading": "Betöltés...",
+    "saving": "Mentés...",
+    "deleting": "Törlés...",
+    "error": "Hiba",
+    "success": "Siker",
+    "noResults": "Nincs találat",
+    "changing": "Módosítás..."
+  },
+  "filters": {
+    "title": "Szűrők",
+    "search": "Keresés",
+    "sort": "Rendezés",
+    "mode": "Mód",
+    "modeAll": "Mind",
+    "modeAny": "Bármelyik",
+    "tags": "Címkék",
+    "searchTags": "Címkék keresése",
+    "favoritesAndRating": "Kedvencek és értékelés",
+    "favorites": "Kedvencek",
+    "cookingTime": "Főzési idő",
+    "cookingTimeUnder15": "<15 perc",
+    "cookingTimeUnder30": "<30 perc",
+    "cookingTimeUnder60": "<60 perc",
+    "cookingTimeUnder120": "<120 perc",
+    "categories": "Kategóriák",
+    "category": {
+      "breakfast": "Reggeli",
+      "lunch": "Ebéd",
+      "dinner": "Vacsora",
+      "snack": "Nassolnivaló"
+    },
+    "sortByTitle": "Cím",
+    "sortByDate": "Dátum",
+    "clearFilters": "Szűrők törlése"
+  },
+  "time": {
+    "minutes": "perc",
+    "hours": "óra"
+  },
+  "validation": {
+    "required": "Ez a mező kötelező",
+    "invalidUrl": "Kérjük, adj meg egy érvényes URL-t"
+  },
+  "errors": {
+    "operationFailed": "A művelet sikertelen",
+    "nameCannotBeEmpty": "A név nem lehet üres",
+    "technicalDetails": "Valami hiba történt. A technikai részletekért ellenőrizd a böngésző konzolját."
+  },
+  "slots": {
+    "breakfast": "Reggeli",
+    "lunch": "Ebéd",
+    "dinner": "Vacsora",
+    "snack": "Nassolnivaló",
+    "chooseSlot": "Időrés választása"
+  },
+  "connection": {
+    "connecting": "Csatlakozás a Norish-hoz...",
+    "syncing": "Szinkronizálás, kérjük várj...",
+    "checkInternet": "Kérjük, ellenőrizd az internetkapcsolatot",
+    "gettingUpdates": "Egy pillanat, amíg lekérjük a legújabb frissítéseket"
+  },
+  "language": {
+    "title": "Nyelv"
+  },
+  "notFound": {
+    "code": "404",
+    "title": "Az oldal nem található",
+    "message": "Hoppá! Nóra nem találta, amit keresel.\nLehet, hogy az oldalt áthelyezték, vagy nem létezik."
+  },
+  "import": {
+    "url": {
+      "title": "Recept importálása",
+      "label": "Recept URL",
+      "placeholder": "https://example.com/a-te-recepted",
+      "failed": "Nem sikerült importálni a receptet",
+      "failedWithAI": "Nem sikerült importálni a receptet AI-jal"
+    },
+    "paste": {
+      "title": "Importálás beillesztéssel",
+      "label": "Recept szöveg vagy JSON-LD",
+      "placeholder": "Illessz be egy receptet (szabad szöveg) vagy JSON-LD-t...",
+      "characters": "{count} / {max} karakter",
+      "tooLarge": "A beillesztett tartalom túl nagy",
+      "maxCharacters": "Maximum {max} karakter engedélyezett",
+      "importing": "Recept importálása...",
+      "importingWithAI": "Recept importálása AI-jal...",
+      "inProgress": "Importálás folyamatban, kérjük várj...",
+      "failed": "Az importálás sikertelen"
+    },
+    "image": {
+      "title": "Importálás képből",
+      "dropzone": "Húzz ide képeket, vagy kattints a böngészéshez",
+      "paste": "a beillesztéshez",
+      "formats": "JPG, PNG, WebP formátumokat támogat. Maximum 10 MB fájlonként.",
+      "invalidType": "Érvénytelen fájltípus",
+      "notSupported": "{name} nem támogatott képformátum",
+      "tooLarge": "A fájl túl nagy",
+      "exceeds": "{name} meghaladja a 10 MB-os korlátot",
+      "tooMany": "Túl sok fájl",
+      "maxFiles": "Maximum {max} fájl engedélyezett",
+      "importing": "Recept importálása képekből...",
+      "analyzing": "Képek elemzése, kérjük várj...",
+      "failed": "Az importálás sikertelen",
+      "selectedCount": "{count} kép kiválasztva – egy receptként lesznek feldolgozva",
+      "library": "Könyvtár",
+      "takePhoto": "Fénykép készítése",
+      "counter": "{count} / {max} fotó",
+      "importFromCount": "Importálás {count, plural, one {# fotóból} other {# fotóból}}"
+    },
+    "menu": {
+      "description": "Importálás URL-ből, fotó beolvasásával, vagy kezdj nulláról."
+    }
+  },
+  "formatting": {
+    "title": "Formázási tippek",
+    "heading": "Kezdj egy sort <strong>#</strong> jellel a fejléchez",
+    "bold": "Csomagold <strong>**dupla csillagokba**</strong> a félkövérhez",
+    "recipeLink": "Írd be <strong>/recept neve</strong> egy másik receptre való hivatkozáshoz",
+    "helpAriaLabel": "Formázási súgó"
+  },
+  "tagInput": {
+    "placeholder": "Írj be szóközzel elválasztott címkéket..."
+  },
+  "recurrence": {
+    "title": "Ismétlés",
+    "frequency": "Gyakoriság",
+    "interval": "Intervallum",
+    "onDay": "Napon",
+    "daily": "Naponta",
+    "weekly": "Hetente",
+    "monthly": "Havonta",
+    "day": "nap",
+    "days": "nap",
+    "week": "hét",
+    "weeks": "hét",
+    "month": "hónap",
+    "months": "hónap",
+    "next": "Következő:",
+    "every": "Minden",
+    "everyOther": "Minden második",
+    "on": "ekkor:",
+    "today": "ma",
+    "tomorrow": "holnap",
+    "weekdays": {
+      "sun": "Va",
+      "mon": "Hé",
+      "tue": "Ke",
+      "wed": "Sze",
+      "thu": "Cs",
+      "fri": "Pé",
+      "sat": "Szo"
+    },
+    "weekdaysFull": {
+      "0": "Vasárnap",
+      "1": "Hétfő",
+      "2": "Kedd",
+      "3": "Szerda",
+      "4": "Csütörtök",
+      "5": "Péntek",
+      "6": "Szombat"
+    }
+  },
+  "badges": {
+    "new": "Új"
+  },
+  "timer": {
+    "done": "Kész",
+    "done_action": "Kész",
+    "one": "Időzítő",
+    "other": "Időzítők",
+    "label_one": "1 időzítő",
+    "label_other": "{count} időzítő",
+    "notification_title": "Időzítő lejárt",
+    "notification_body": "{label} készen van!",
+    "notifications_disabled": "Az értesítések le vannak tiltva",
+    "notifications_disabled_hint": "Engedélyezd az értesítéseket a böngésző beállításaiban, hogy értesítést kapj, amikor az időzítők lejárnak a háttérben."
+  }
+}

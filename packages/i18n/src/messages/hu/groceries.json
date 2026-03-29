@@ -1,0 +1,78 @@
+{
+  "page": {
+    "title": "Bevásárlólista",
+    "addItem": "Elem hozzáadása",
+    "addItems": "Elemek hozzáadása",
+    "viewByStore": "Bolt szerint",
+    "viewByRecipe": "Recept szerint",
+    "viewMode": "Nézet mód",
+    "manageStores": "Boltok kezelése",
+    "storeViewOptions": "Bolt nézet beállításai",
+    "groupIngredients": "Hozzávalók csoportosítása"
+  },
+  "empty": {
+    "title": "A bevásárlólistád vár",
+    "description": "Adj hozzá elemeket a fenti „Elem hozzáadása" gombbal az induláshoz.",
+    "manual": "Manuális elemek"
+  },
+  "item": {
+    "unnamedItem": "Névtelen elem",
+    "fromRecipes": "{count, plural, one {# receptből} other {# receptből}}",
+    "items": "{count, plural, one {# elem} other {# elem}}"
+  },
+  "store": {
+    "unsorted": "Rendezetlen",
+    "noItems": "Nincs elem ebben a boltban",
+    "storeActions": "Bolt műveletek",
+    "markAllDone": "Összes kész jelölése",
+    "deleteDone": "Kész elemek törlése",
+    "done": "{count} kész"
+  },
+  "storeManager": {
+    "title": "Boltok kezelése",
+    "addStore": "Bolt hozzáadása",
+    "editStore": "Bolt szerkesztése",
+    "deleteStore": "Bolt törlése",
+    "storeName": "Bolt neve",
+    "storeNamePlaceholder": "pl. Szupermarket",
+    "storeColor": "Szín",
+    "storeIcon": "Ikon",
+    "confirmDelete": "Biztosan törölni szeretnéd: {storeName}?",
+    "deleteWarning": "Az ebben a boltban lévő elemek a Rendezetlen kategóriába kerülnek.",
+    "noStoresYet": "Még nincsenek boltok",
+    "createStoreHint": "Hozz létre egy boltot a bevásárlóid rendszerezéséhez",
+    "hasItems": "Ebben a boltban {count} bevásárló elem van.",
+    "hasItemsPlural": "Ebben a boltban {count} bevásárló elem van.",
+    "whatToDo": "Mit szeretnél tenni velük?",
+    "keepItems": "Elemek megtartása",
+    "keepItemsDescription": "Elemek áthelyezése a Rendezetlen kategóriába",
+    "deleteItems": "Elemek törlése",
+    "deleteItemsDescription": "Az ebben a boltban lévő összes elem eltávolítása",
+    "noItems": "Ennek a boltnak nincs eleme.",
+    "create": "Létrehozás"
+  },
+  "panel": {
+    "addTitle": "Bevásárló hozzáadása",
+    "editTitle": "Bevásárló szerkesztése",
+    "itemName": "Elem neve",
+    "itemNamePlaceholder": "pl. Tej, Tojás, Kenyér...",
+    "selectStore": "Bolt kiválasztása",
+    "noStore": "Nincs bolt",
+    "recurrence": "Ismétlés",
+    "savePreference": "Bolt megjegyzése ehhez az elemhez",
+    "addAnother": "Újabb hozzáadása",
+    "addRepeat": "+ Ismétlés hozzáadása",
+    "storeOptional": "Bolt (opcionális)",
+    "autoDetectFromHistory": "Automatikus felismerés előzményekből",
+    "autoDetectOrSelect": "Automatikus felismerés vagy kiválasztás",
+    "placeholder": "pl. 2 kg csirkemell",
+    "editPlaceholder": "pl. tej minden héten",
+    "servings": "Adagok",
+    "loadingIngredients": "Hozzávalók betöltése...",
+    "noIngredients": "Nincs hozzávaló.",
+    "addSelectedToGroceries": "Hozzáadás a bevásárlólistához",
+    "ingredientsAdded": "Hozzávalók hozzáadva a bevásárlólistához.",
+    "ingredientsFailed": "Nem sikerült hozzáadni a hozzávalókat a bevásárlólistához.",
+    "addToGroceries": "Hozzáadás a bevásárlólistához"
+  }
+}

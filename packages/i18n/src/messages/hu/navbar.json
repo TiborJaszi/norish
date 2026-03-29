@@ -1,0 +1,50 @@
+{
+  "userMenu": {
+    "newRecipe": {
+      "title": "Új recept",
+      "description": "Írd meg a saját receptedet"
+    },
+    "importUrl": {
+      "title": "Importálás URL-ből",
+      "description": "Illessz be egy recept linket"
+    },
+    "settings": {
+      "title": "Beállítások",
+      "description": "Fiókod kezelése"
+    },
+    "logout": "Kijelentkezés",
+    "version": {
+      "updateAvailable": "v{version} elérhető"
+    }
+  },
+  "theme": {
+    "title": "Téma",
+    "loading": "Betöltés...",
+    "light": "Világos mód",
+    "dark": "Sötét mód",
+    "system": "Rendszer alapértelmezés"
+  },
+  "nav": {
+    "home": "Receptek",
+    "calendar": "Naptár",
+    "groceries": "Bevásárlólista"
+  },
+  "mobile": {
+    "searchPlaceholder": "Receptek keresése...",
+    "toggleSearch": "Keresés váltása",
+    "goBack": "Vissza"
+  },
+  "archiveImporter": {
+    "uploading": "Feltöltés...",
+    "uploadFile": "Fájl feltöltése",
+    "dragDrop": "vagy húzd ide",
+    "formats": ".melarecipes (Mela), .paprikarecipes (Paprika), .zip (Mealie/Tandoor)",
+    "uploadingFile": "Fájl feltöltése...",
+    "processing": "Feldolgozás: {details}",
+    "complete": "Kész: {details}",
+    "imported": "{count} importálva",
+    "skipped": "{count} kihagyva",
+    "errors": "{count} hiba",
+    "ofTotal": "{current} / {total}"
+  }
+}

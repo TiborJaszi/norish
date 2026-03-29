@@ -1,0 +1,568 @@
+{
+  "page": {
+    "title": "Beállítások",
+    "loading": "Betöltés...",
+    "ariaLabel": "Beállítások lapok"
+  },
+  "tabs": {
+    "user": "Felhasználó",
+    "household": "Háztartás",
+    "caldav": "CalDAV",
+    "admin": "Admin"
+  },
+  "user": {
+    "profile": {
+      "title": "Profil",
+      "nameLabel": "Név",
+      "namePlaceholder": "A neved",
+      "emailLabel": "E-mail",
+      "avatarHint": "Kattints az avatarodra a kép megváltoztatásához",
+      "deleteAvatar": "Profilkép törlése",
+      "saveChanges": "Változások mentése"
+    },
+    "allergies": {
+      "title": "Allergiák",
+      "description": "Add meg az ételallergáidat, hogy figyelmeztetést kapj, amikor allergiát tartalmazó recepteket tervezel. Ezt az információt arra használjuk, hogy figyelmeztetés küldünk, ha egy tervezett recept allergiáidnak megfelelő hozzávalókat tartalmaz.",
+      "placeholder": "Írj be allergiákat (pl. glutén, dió, tejtermék)...",
+      "saveButton": "Allergiák mentése"
+    },
+    "apiKeys": {
+      "title": "API kulcsok",
+      "description": "Az API kulcsok programozási hozzáférést biztosítanak a Norish API-hoz. Használd őket integrációkhoz, parancsikonokhoz és automatizáláshoz.",
+      "keyNameLabel": "Kulcs neve (opcionális)",
+      "keyNamePlaceholder": "pl. iOS parancsikon",
+      "createKey": "Kulcs létrehozása",
+      "yourKeys": "Az API kulcsaid",
+      "noKeys": "Még nincsenek API kulcsok. Hozz létre egyet az induláshoz.",
+      "tableHeaders": {
+        "name": "NÉV",
+        "keyPrefix": "KULCS ELŐTAG",
+        "created": "LÉTREHOZVA",
+        "status": "ÁLLAPOT",
+        "actions": "MŰVELETEK"
+      },
+      "unnamed": "Névtelen",
+      "active": "Aktív",
+      "disabled": "Letiltva",
+      "disableKey": "Kulcs letiltása",
+      "enableKey": "Kulcs engedélyezése",
+      "deleteKey": "Kulcs törlése",
+      "generatedModal": {
+        "title": "API kulcs generálva",
+        "warning": "Mentsd el ezt a kulcsot most! Többé nem fogod látni. Csak a hashét tároljuk, és nem tudjuk visszaállítani ezt a kulcsot.",
+        "hint": "Használd ezt a kulcsot az <code>x-api-key</code> fejlécben az API kérések küldésekor.",
+        "confirmButton": "Elmentettem"
+      },
+      "deleteModal": {
+        "title": "API kulcs törlése",
+        "message": "Biztosan törölni szeretnéd ezt az API kulcsot? Az azt használó alkalmazások azonnal elveszítik a hozzáférést. Ez nem vonható vissza.",
+        "confirmButton": "Kulcs törlése"
+      }
+    },
+    "archiveImport": {
+      "title": "Receptarchívum importálása",
+      "description": "Receptek importálása Mela (.melarecipes), Paprika (.paprikarecipes) vagy Mealie/Tandoor (.zip) exportokból"
+    },
+    "siteAuthTokens": {
+      "title": "Webhelyhitelesítési tokenek",
+      "description": "Adj hozzá fejléceket vagy sütiket, amelyek az adott weboldalakról való recept importálásakor kerülnek elküldésre. Hasznos a bejelentkezést igénylő oldalaknál (pl. Instagram, Facebook).",
+      "domain": "Domain",
+      "domainPlaceholder": "pl. instagram.com",
+      "name": "Név",
+      "namePlaceholder": "pl. Cookie vagy Authorization",
+      "value": "Érték",
+      "valuePlaceholder": "Token vagy süti értéke",
+      "type": "Típus",
+      "typeHeader": "Fejléc",
+      "typeCookie": "Süti",
+      "addButton": "Token hozzáadása",
+      "noTokens": "Nincsenek konfigurált webhelyhitelesítési tokenek.",
+      "tableHeaders": {
+        "domain": "DOMAIN",
+        "name": "NÉV",
+        "type": "TÍPUS",
+        "created": "LÉTREHOZVA",
+        "actions": "MŰVELETEK"
+      },
+      "deleteModal": {
+        "title": "Token törlése",
+        "message": "Biztosan törölni szeretnéd ezt a hitelesítési tokent? Az erről az oldalról való importálás leállhat.",
+        "confirmButton": "Token törlése"
+      }
+    },
+    "dangerZone": {
+      "title": "Veszélyes zóna",
+      "description": "Ha törlöd a fiókodat, nincs visszaút. Kérjük, legyél biztos benne.",
+      "deleteButton": "Fiókom törlése",
+      "deleteModal": {
+        "title": "Fiók törlése",
+        "permanentWarning": "Ez a művelet végleges és nem vonható vissza!",
+        "dataWarning": "A személyes adataid, beleértve a bevásárlólistát, naptárbejegyzéseket és megjegyzéseket, véglegesen törlődnek.",
+        "recipesNote": "Az általad létrehozott receptek megmaradnak, de többé nem lesznek a fiókodhoz kapcsolva.",
+        "adminNote": "Ha más tagokkal rendelkező háztartás adminisztrátora vagy, először át kell adnod az adminisztrátori jogokat.",
+        "confirmButton": "Fiókom törlése"
+      }
+    },
+    "preferences": {
+      "title": "Beállítások",
+      "description": "Személyre szabhatod az élményedet.",
+      "language": {
+        "title": "Nyelv",
+        "description": "Válaszd ki a kívánt nyelvet"
+      },
+      "timers": {
+        "title": "Receptidőzítők engedélyezése",
+        "description": "Interaktív időzítők megjelenítése a receptutasításokban"
+      },
+      "conversion": {
+        "title": "Hozzávaló-átalakítás gomb megjelenítése",
+        "description": "Gomb megjelenítése a receptoldalakon a mértékegység-rendszerek közötti váltáshoz"
+      },
+      "ratings": {
+        "title": "Értékelések megjelenítése",
+        "description": "Csillagértékelések megjelenítése a receptkártyákon és részletoldalon"
+      },
+      "favorites": {
+        "title": "Kedvencek megjelenítése",
+        "description": "Kedvenc/szív ikonok megjelenítése a receptkártyákon és részletoldalon"
+      },
+      "applyError": "Nem sikerült alkalmazni a beállítást"
+    }
+  },
+  "household": {
+    "pageTitle": "Háztartás beállításai",
+    "info": {
+      "yourRole": "A szereped",
+      "admin": "Admin",
+      "member": "Tag",
+      "members": "Tagok",
+      "leaveButton": "Háztartás elhagyása",
+      "leaveModal": {
+        "title": "Háztartás elhagyása",
+        "confirmMessage": "Biztosan el szeretnéd hagyni: {name}?",
+        "adminWarning": "Te vagy az admin. Az elhagyás előtt át kell adnod az adminisztrátori jogokat.",
+        "confirmButton": "Háztartás elhagyása"
+      }
+    },
+    "members": {
+      "title": "Tagok",
+      "tableHeaders": {
+        "name": "NÉV",
+        "role": "SZEREP",
+        "actions": "MŰVELETEK"
+      },
+      "you": "Te",
+      "kickButton": "Eltávolítás",
+      "makeAdminButton": "Admin kinevezése",
+      "kickModal": {
+        "title": "Felhasználó eltávolítása",
+        "confirmMessage": "Biztosan el szeretnéd távolítani {name}-t a háztartásból?",
+        "warning": "Elveszítik a hozzáférést az összes megosztott recepthez, bevásárlólistához és naptárbejegyzéshez.",
+        "confirmButton": "Felhasználó eltávolítása"
+      },
+      "transferModal": {
+        "title": "Adminisztrátori jogok átadása",
+        "confirmMessage": "Biztosan át szeretnéd adni az adminisztrátori jogokat {name}-nek?",
+        "warning": "Egyszerű tag leszel, és többé nem tudod eltávolítani a felhasználókat vagy kezelni a csatlakozási kódokat.",
+        "confirmButton": "Admin átadása"
+      },
+      "toasts": {
+        "kickFailed": "Nem sikerült eltávolítani a felhasználót",
+        "transferSuccess": "Admin átadva {name}-nek",
+        "transferFailed": "Nem sikerült átadni az adminisztrátori jogokat"
+      }
+    },
+    "joinCode": {
+      "title": "Csatlakozási kód",
+      "shareDescription": "Oszd meg ezt a kódot másokkal, hogy meghívd őket a háztartásodba.",
+      "expiresIn": "Lejár:",
+      "regenerateButton": "Újragenerálás",
+      "expired": "Lejárt",
+      "noCodeDescription": "Nincs aktív csatlakozási kód. Generálj egyet az új tagok meghívásához.",
+      "generateButton": "Csatlakozási kód generálása"
+    },
+    "create": {
+      "title": "Háztartás létrehozása",
+      "description": "Hozz létre egy új háztartást a receptek és bevásárlólista megosztásához a családdal vagy barátokkal.",
+      "nameLabel": "Háztartás neve",
+      "namePlaceholder": "pl. Kovács család",
+      "submitButton": "Háztartás létrehozása"
+    },
+    "join": {
+      "title": "Csatlakozás háztartáshoz",
+      "description": "Add meg a csatlakozási kódot egy meglévő háztartáshoz való csatlakozáshoz.",
+      "codeLabel": "Csatlakozási kód",
+      "codePlaceholder": "8 karakteres kód",
+      "submitButton": "Csatlakozás háztartáshoz"
+    }
+  },
+  "caldav": {
+    "setup": {
+      "title": "CalDAV szinkronizálás beállítása",
+      "description": "Kapcsold össze a CalDAV-kompatibilis naptáradat az étkezési tervek automatikus szinkronizálásához",
+      "gettingStarted": "Első lépések a CalDAV-val",
+      "providerDescription": "Szükséged lesz egy CalDAV-kompatibilis naptárszolgáltatásra. Népszerű szolgáltatók:",
+      "serverUrlLabel": "Szerver URL",
+      "serverUrlDescription": "A CalDAV szerver alap URL-je (pl. https://dav.example.com)",
+      "serverUrlPlaceholder": "https://dav.example.com",
+      "usernameLabel": "Felhasználónév",
+      "usernamePlaceholder": "felhasználónév",
+      "passwordLabel": "Jelszó",
+      "passwordPlaceholder": "Add meg a jelszót",
+      "calendarLabel": "Naptár",
+      "calendarPlaceholder": "Naptár kiválasztása",
+      "calendarPlaceholderDisabled": "Először teszteld a kapcsolatot",
+      "calendarDescription": "Válaszd ki, melyik naptárral szinkronizálod az étkezési terveket",
+      "calendarDescriptionDisabled": "Teszteld a kapcsolatot az elérhető naptárak betöltéséhez",
+      "timeFormat": "Formátum: ÓÓ:PP-ÓÓ:PP",
+      "timeFormatError": "A formátumnak ÓÓ:PP-ÓÓ:PP alakúnak kell lennie",
+      "breakfastTime": "Reggeli ideje",
+      "lunchTime": "Ebéd ideje",
+      "dinnerTime": "Vacsora ideje",
+      "snackTime": "Nassolás ideje",
+      "testConnection": "Kapcsolat tesztelése",
+      "saveConfiguration": "Konfiguráció mentése"
+    },
+    "config": {
+      "title": "CalDAV konfiguráció",
+      "editTitle": "CalDAV konfiguráció szerkesztése",
+      "serverUrl": "Szerver URL",
+      "enabled": "Engedélyezve",
+      "disabled": "Letiltva",
+      "editButton": "Szerkesztés",
+      "deleteButton": "Törlés",
+      "saveChanges": "Változások mentése",
+      "advancedSettings": "Speciális beállítások",
+      "timezone": "Időzóna: {timezone}",
+      "connectionStatus": {
+        "connected": "Csatlakoztatva",
+        "checking": "Ellenőrzés...",
+        "disconnected": "Lecsatlakoztatva",
+        "unknown": "Ismeretlen"
+      }
+    },
+    "deleteModal": {
+      "title": "CalDAV konfiguráció törlése",
+      "confirmMessage": "Biztosan törölni szeretnéd a CalDAV konfigurációdat?",
+      "deleteEventsLabel": "Szinkronizált események törlése",
+      "deleteEventsDescription": "A CalDAV naptárban létrehozott összes esemény eltávolítása",
+      "confirmButton": "Törlés"
+    },
+    "syncStatus": {
+      "title": "Szinkronizálás állapota",
+      "syncNow": "Szinkronizálás most",
+      "clearFilter": "Szűrő törlése",
+      "clickToFilter": "Kattints egy jelvényre a szűréshez",
+      "showingItems": "{start}-{end} megjelenítése {total} elemből",
+      "tableHeaders": {
+        "item": "ELEM",
+        "type": "TÍPUS",
+        "date": "DÁTUM",
+        "meal": "ÉTKEZÉS",
+        "status": "ÁLLAPOT",
+        "lastSync": "UTOLSÓ SZINKRON",
+        "error": "HIBA"
+      },
+      "statuses": {
+        "synced": "Szinkronizálva",
+        "pending": "Függőben",
+        "failed": "Sikertelen",
+        "removed": "Eltávolítva"
+      },
+      "emptyFiltered": "Nem találhatók {status} elemek",
+      "emptyDefault": "Nem találhatók szinkronizálási rekordok",
+      "errorDetails": "Hiba részletei"
+    }
+  },
+  "admin": {
+    "general": {
+      "title": "Általános",
+      "allowRegistration": "Új felhasználói regisztráció engedélyezése",
+      "registrationDescription": "Ha le van tiltva, csak a meglévő felhasználók tudnak bejelentkezni",
+      "locales": "Engedélyezett nyelvek",
+      "localesDescription": "Válaszd ki, mely nyelvek közül választhatnak a felhasználók",
+      "defaultLocale": "Alapértelmezett nyelv",
+      "defaultLocaleDescription": "Az új felhasználók számára és tartalékként használt nyelv",
+      "saveLocales": "Nyelvi beállítások mentése",
+      "localesSaved": "Nyelvi beállítások mentve",
+      "localesError": "Nem sikerült menteni a nyelvi beállításokat",
+      "atLeastOneLocale": "Legalább egy nyelvet engedélyezni kell"
+    },
+    "registration": {
+      "title": "Regisztráció",
+      "allowRegistration": "Új felhasználói regisztráció engedélyezése",
+      "description": "Ha le van tiltva, csak a meglévő felhasználók tudnak bejelentkezni"
+    },
+    "permissions": {
+      "title": "Recept engedélyek",
+      "description": "Szabályozd, ki tekintheti meg, szerkesztheti és törölheti a recepteket. A szerver adminisztrátoroknak mindig teljes hozzáférésük van.",
+      "viewRecipes": "Receptek megtekintése",
+      "viewDescription": "Ki láthatja a recepteket az irányítópulton",
+      "editRecipes": "Receptek szerkesztése",
+      "editDescription": "Ki módosíthatja a recept részleteit",
+      "deleteRecipes": "Receptek törlése",
+      "deleteDescription": "Ki távolíthatja el a recepteket",
+      "levels": {
+        "everyone": "Mindenki",
+        "everyoneDescription": "Minden hitelesített felhasználó",
+        "household": "Háztartás",
+        "householdDescription": "A recept tulajdonosa és háztartástagjai",
+        "owner": "Csak a tulajdonos",
+        "ownerDescription": "Csak a recept tulajdonosa"
+      },
+      "note": "Megjegyzés: A bevásárlólista és naptárelemek automatikusan követik a háztartási szabályokat, a háztartástagok mindig szerkeszthetik/törölhetik az ugyanazon háztartásban lévő bármely személy elemeit."
+    },
+    "system": {
+      "title": "Rendszerbeállítások",
+      "cleanup": {
+        "title": "Takarítási ütemező",
+        "label": "Takarítási hónapok",
+        "description": "Ennyi hónapnál régebbi tervezett étkezések törlése"
+      },
+      "server": {
+        "title": "Szerverfenntartás",
+        "restartLabel": "Szerver újraindítása",
+        "restartDescription": "Újraindítást igénylő konfigurációs változások alkalmazása",
+        "restartButton": "Szerver újraindítása"
+      }
+    },
+    "restart": {
+      "title": "Szerver újraindítása",
+      "confirmMessage": "Biztosan újra szeretnéd indítani a szervert?",
+      "importantTitle": "Fontos:",
+      "warning1": "Minden aktív kapcsolat megszakad",
+      "warning2": "A szerver néhány másodpercig nem lesz elérhető",
+      "warning3": "Győződj meg arról, hogy az üzemeltetési környezetben be van állítva a <code>restart: always</code>, különben a szerver nem indul el automatikusan",
+      "confirmButton": "Újraindítás most"
+    },
+    "authProviders": {
+      "title": "Hitelesítési szolgáltatók",
+      "requiresRestart": "Újraindítást igényel",
+      "description": "Hitelesítési módszerek konfigurálása. A változások életbe lépéséhez szerver-újraindítás szükséges.",
+      "passwordAuth": {
+        "title": "E-mail és jelszó",
+        "description": "Felhasználók bejelentkezésének engedélyezése e-maillel és jelszóval"
+      },
+      "oauthDescription": "OAuth szolgáltatók konfigurálása az SSO hitelesítéshez.",
+      "oidc": {
+        "title": "OIDC szolgáltató",
+        "subtitle": "Általános OpenID Connect",
+        "fields": {
+          "name": "Szolgáltató neve",
+          "namePlaceholder": "pl. Authentik, Keycloak",
+          "issuer": "Kibocsátó URL",
+          "issuerPlaceholder": "https://az-idp-ed.com",
+          "clientId": "Kliens azonosító",
+          "clientSecret": "Kliens titok",
+          "wellknown": "Well-known URL (opcionális)",
+          "wellknownPlaceholder": "Automatikusan levezetett a kibocsátóból, ha nincs beállítva"
+        },
+        "claimMapping": {
+          "title": "Claim leképezés",
+          "description": "Automatikusan rendelj szerepeket és háztartásokat OIDC claimek alapján. Az admin csoportba tartozó felhasználók szerver admin jogokat kapnak. A háztartási csoportba tartozó felhasználók automatikusan csatlakoznak az adott háztartáshoz.",
+          "securityWarning": "Figyelmeztetés: A claim leképezés engedélyezése lehetővé teszi, hogy az identitásszolgáltatód admin jogokat és háztartási tagságot vezérelje. Csak akkor engedélyezd, ha teljesen megbízol az OIDC szolgáltatódban, és megfelelően konfigurálta a csoportos claimeket.",
+          "scopes": "További hatókörök",
+          "scopesPlaceholder": "groups, roles",
+          "scopesDescription": "Vesszővel elválasztott lista a kért további OAuth hatókörökről (pl. groups a Keycloak-hoz)",
+          "groupsClaim": "Csoportok claim",
+          "groupsClaimDescription": "A felhasználói csoportokat/szerepeket tartalmazó claim neve",
+          "adminGroup": "Admin csoport",
+          "adminGroupDescription": "A szerver admin szerepet adó csoport neve (nem kis-nagybetű érzékeny)",
+          "householdPrefix": "Háztartás előtag",
+          "householdPrefixDescription": "Háztartási csoportnevek előtagja (pl. norish_household_family => 'family' háztartás)"
+        }
+      },
+      "github": {
+        "title": "GitHub",
+        "subtitle": "GitHub OAuth",
+        "fields": {
+          "clientId": "Kliens azonosító",
+          "clientSecret": "Kliens titok"
+        }
+      },
+      "google": {
+        "title": "Google",
+        "subtitle": "Google OAuth",
+        "fields": {
+          "clientId": "Kliens azonosító",
+          "clientIdPlaceholder": "*.apps.googleusercontent.com",
+          "clientSecret": "Kliens titok"
+        }
+      },
+      "form": {
+        "testSuccess": "Sikeres kapcsolat",
+        "removeTitle": "{provider} eltávolítása",
+        "removeConfirm": "Biztosan el szeretnéd távolítani ezt a szolgáltatót?"
+      },
+      "envBadge": {
+        "db": "Adatbázis kezeli",
+        "env": "Környezeti változó kezeli"
+      }
+    },
+    "contentDetection": {
+      "title": "Tartalomfelismerés",
+      "description": "Állítsd be, hogyan ismerjük fel és dolgozzuk fel a weboldalakról a recepteket.",
+      "contentIndicators": {
+        "title": "Tartalomjelzők",
+        "subtitle": "Receptoldalakat azonosító kulcsszavak",
+        "description": "A sémajelzők strukturált receptadatokat érzékelnek (JSON-LD, mikroadat). A tartalomjelzők olyan kulcsszavak, amelyek azt sugallják, hogy egy oldal receptet tartalmaz.",
+        "timersEnabled": {
+          "title": "Receptidőzítők engedélyezése",
+          "description": "Interaktív időzítők felismerése és megjelenítése a receptekben"
+        }
+      },
+      "units": {
+        "title": "Mértékegységek",
+        "subtitle": "Mértékegység-definíciók az elemzéshez",
+        "description": "Határozd meg a mértékegységeket rövid formájukkal, többes számukkal és alternatív írásmódjukkal. A hozzávaló mennyiségek elemzésekor használatos."
+      },
+      "recurrence": {
+        "title": "Ismétlési minták",
+        "subtitle": "Természetes nyelvű minták az ismétlődő elemekhez",
+        "description": "Határozz meg területi specifikus mintákat az ismétlési szabályok természetes nyelvből való elemzéséhez (pl. 'minden héten', 'minden második nap')."
+      },
+      "timerKeywords": {
+        "title": "Időzítő kulcsszavak",
+        "subtitle": "Időegység kulcsszavak az időzítő felismeréséhez",
+        "description": "Állítsd be a receptutasításokban az időzítők felismeréséhez használt kulcsszavakat. Több nyelvet támogat.",
+        "enableToggle": "Időzítő felismerés engedélyezése",
+        "hoursLabel": "Óra kulcsszavak",
+        "hoursPlaceholder": "hour, hours, hr, hrs, h",
+        "hoursHelp": "Kulcsszavak az órákhoz (pl. hour, stunde, heure, uur, óra)",
+        "minutesLabel": "Perc kulcsszavak",
+        "minutesPlaceholder": "minute, minutes, min, mins, m",
+        "minutesHelp": "Kulcsszavak a percekhez (pl. minute, minuten, minuut, perc)",
+        "secondsLabel": "Másodperc kulcsszavak",
+        "secondsPlaceholder": "second, seconds, sec, secs, s",
+        "secondsHelp": "Kulcsszavak a másodpercekhez (pl. second, sekunde, seconde, másodperc)",
+        "unsavedChanges": "Nem mentett változások"
+      }
+    },
+    "aiProcessing": {
+      "title": "MI és feldolgozás",
+      "description": "Konfiguráld a receptkinyeréshez és videófeldolgozáshoz szükséges MI-alapú funkciókat.",
+      "aiConfig": {
+        "title": "MI konfiguráció",
+        "subtitle": "Recept elemzése és kinyerése"
+      },
+      "video": {
+        "title": "Videófeldolgozás",
+        "subtitle": "Közösségi média videó kinyerése és átírása"
+      },
+      "prompts": {
+        "title": "Promptok",
+        "subtitle": "MI utasítások testreszabása a receptfeldolgozáshoz"
+      },
+      "bulkCategorization": {
+        "title": "Tömeges kategorizálás",
+        "subtitle": "Kategorizálatlan receptek MI-alapú kategorizálása",
+        "description": "Az összes kategorizálatlan recept MI-alapú kategóriafelismerési sorba helyezése. A kategóriák: Reggeli, Ebéd, Vacsora és Nassolnivaló.",
+        "button": "Összes recept kategorizálása",
+        "queued": "{count, plural, =0 {Nincs kategorizálandó recept} one {# recept sorba helyezve} other {# recept sorba helyezve}}",
+        "success": "Kategorizálás elindítva",
+        "error": "Nem sikerült elindítani a kategorizálást"
+      }
+    },
+    "aiConfig": {
+      "enableAI": "MI funkciók engedélyezése",
+      "enableAIDescription": "MI használata receptek kinyerésére strukturálatlan tartalomból",
+      "configureWarning": "Konfiguráld az alábbi MI szolgáltató beállításait a MI funkciók engedélyezéséhez.",
+      "provider": "MI szolgáltató",
+      "providers": {
+        "openai": "OpenAI",
+        "azure": "Azure OpenAI",
+        "anthropic": "Anthropic",
+        "google": "Google AI",
+        "mistral": "Mistral AI",
+        "deepseek": "DeepSeek",
+        "perplexity": "Perplexity",
+        "groq": "Groq",
+        "ollama": "Ollama (Helyi)",
+        "lmStudio": "LM Studio (Helyi)",
+        "genericOpenai": "Általános OpenAI-kompatibilis"
+      },
+      "endpointUrl": "Végpont URL",
+      "azureEndpoint": "Azure erőforrás URL (opcionális)",
+      "azureEndpointDescription": "Egyéni Azure OpenAI végpont. Hagyd üresen az alapértelmezetthez.",
+      "model": "Modell",
+      "visionModel": "Látási modell (opcionális)",
+      "visionModelDescription": "Opcionális: Használj más modellt kép/látási feladatokhoz. Hagyd üresen a fenti modell használatához.",
+      "apiKey": "API kulcs",
+      "apiKeyPlaceholder": "Add meg az API kulcsot",
+      "temperature": "Hőmérséklet: {value}",
+      "temperatureHint": "Alacsonyabb = fókuszáltabb, Magasabb = kreatívabb",
+      "maxTokens": "Maximum tokenek",
+      "autoTagAllergies": "Allergia címkék automatikus felismerése",
+      "autoTagAllergiesDescription": "Automatikusan adj hozzá allergiával kapcsolatos címkéket receptek importálásakor",
+      "alwaysUseAI": "Mindig MI importálás használata",
+      "alwaysUseAIDescription": "Hagyd ki a strukturált elemzőket, és kizárólag MI segítségével nyerd ki a recepteket",
+      "autoTaggingMode": "Automatikus címkézési mód",
+      "autoTaggingModeDescription": "Automatikusan rendelj hozzá címkéket/kulcsszavakat az importált receptekhez MI segítségével",
+      "autoTaggingModes": {
+        "disabled": "Letiltva",
+        "predefined": "Csak előre meghatározott címkék",
+        "predefinedDb": "Előre meghatározott + meglévő címkék",
+        "freeform": "MI létrehozhat új címkéket"
+      },
+      "connectionSuccess": "Sikeres kapcsolat",
+      "testConnection": "Kapcsolat tesztelése",
+      "vision": "látás"
+    },
+    "videoConfig": {
+      "enableVideo": "Videóelemzés engedélyezése",
+      "enableVideoDescription": "Receptek kinyerése TikTok, Instagram, YouTube Shorts vagy Facebook videókból",
+      "configureWarning": "Konfiguráld az alábbi átírási szolgáltatót a videófeldolgozás engedélyezéséhez.",
+      "aiDisabledWarning": "Engedélyezd a MI konfigurációt a videófeldolgozás bekapcsolása előtt.",
+      "maxLength": "Maximális videóhossz (másodperc)",
+      "maxLengthDescription": "A hosszabb videók több időt és erőforrást igényelnek a feldolgozáshoz",
+      "maxFileSize": "Maximális videófájl-méret",
+      "maxFileSizeDescription": "A letöltött videófájlok maximális mérete",
+      "ytDlpVersion": "yt-dlp verzió",
+      "ytDlpVersionDescription": "A videóletöltéshez használandó yt-dlp verzió",
+      "transcription": "Átírás",
+      "transcriptionDescription": "Videó hanganyagának szöveggé alakítása a receptkinyeréshez",
+      "transcriptionProvider": "Átírási szolgáltató",
+      "transcriptionProviderDescription": "Csak az OpenAI és OpenAI-kompatibilis végpontok támogatják a Whisper átírást",
+      "transcriptionProviders": {
+        "disabled": "Letiltva",
+        "openai": "OpenAI Whisper",
+        "groq": "Groq Whisper",
+        "azure": "Azure OpenAI Whisper",
+        "ollama": "Ollama",
+        "genericOpenai": "Általános OpenAI-kompatibilis"
+      },
+      "transcriptionEndpoint": "Végpont URL",
+      "transcriptionEndpointDescription": "OpenAI-kompatibilis végpont Whisper támogatással, vagy Ollama végpont",
+      "transcriptionModel": "Modell",
+      "transcriptionModelDescription": "Az átíráshoz használandó Whisper modell",
+      "transcriptionModelPlaceholder": "Válassz vagy add meg a modell nevét",
+      "transcriptionApiKey": "API kulcs",
+      "transcriptionApiKeyDescription": "Ha nincs beállítva, a MI konfiguráció API kulcsát használja",
+      "transcriptionApiKeyPlaceholder": "Hagyd üresen a MI konfigurációs kulcs használatához",
+      "transcriptionApiKeyOptional": "API kulcs (opcionális)",
+      "transcriptionApiKeyOptionalDescription": "A legtöbb helyi Whisper szerver nem igényel API kulcsot",
+      "transcriptionApiKeyOptionalPlaceholder": "Hagyd üresen a helyi szerverekhez"
+    },
+    "promptsConfig": {
+      "recipeExtraction": "Receptkinyerési prompt",
+      "recipeExtractionDescription": "Ezt a promptot receptadatok weboldalakról vagy videóátiratokból való kinyerésekor használjuk.",
+      "recipeExtractionPlaceholder": "Add meg a receptkinyerési promptot...",
+      "unitConversion": "Mértékegység-átalakítási prompt",
+      "unitConversionDescription": "Ezt a promptot receptmértékek metrikus és US rendszer közötti átalakításakor használjuk. Elérhető változók: sourceSystem, targetSystem, units",
+      "unitConversionPlaceholder": "Add meg a mértékegység-átalakítási promptot...",
+      "nutritionEstimation": "Tápérték-becslési prompt",
+      "nutritionEstimationDescription": "Ezt a promptot egy recept tápértékadatainak becslésekor használjuk. Elérhető változók: recipeName, servings, ingredients",
+      "nutritionEstimationPlaceholder": "Add meg a tápérték-becslési promptot...",
+      "autoTagging": "Automatikus címkézési prompt",
+      "autoTaggingDescription": "Ezt a promptot az importált receptek címkéinek generálásához használjuk. Határozd meg a címkézési szabályokat és az előre meghatározott címkék listáját.",
+      "autoTaggingPlaceholder": "Add meg az automatikus címkézési promptot..."
+    },
+    "unsavedChanges": "Nem mentett változások",
+    "jsonEditor": {
+      "placeholder": "Add meg a JSON konfigurációt...",
+      "invalidJson": "Érvénytelen JSON formátum",
+      "failedToSave": "Nem sikerült menteni",
+      "failedToRestore": "Nem sikerült visszaállítani az alapértékeket"
+    }
+  }
+}

@@ -61,6 +61,8 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
 ##############################
 FROM builder-base AS build
 
+ARG TARGETARCH
+
 # Native build deps are already compiled in node_modules from deps stage.
 # Only re-install if pnpm deploy triggers native rebuilds.
 RUN apk add --no-cache pkgconfig libpq-dev vips-dev
@@ -83,7 +85,7 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" \
     SKIP_ENV_VALIDATION=1
 
-RUN --mount=type=cache,target=/tmp/.turbo \
+RUN --mount=type=cache,target=/tmp/.turbo,id=turbo-${TARGETARCH} \
     TURBO_CACHE_DIR=/tmp/.turbo pnpm run build && \
     rm -rf apps/web/.next/cache apps/web/.next/trace \
            apps/web/.next/dev apps/web/.next/diagnostics apps/web/.next/types && \

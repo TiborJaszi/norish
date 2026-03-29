@@ -83,7 +83,8 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
 ENV DATABASE_URL="postgresql://dummy:dummy@localhost:5432/dummy" \
     SKIP_ENV_VALIDATION=1
 
-RUN pnpm run build && \
+RUN --mount=type=cache,target=/tmp/.turbo \
+    TURBO_CACHE_DIR=/tmp/.turbo pnpm run build && \
     rm -rf apps/web/.next/cache apps/web/.next/trace \
            apps/web/.next/dev apps/web/.next/diagnostics apps/web/.next/types && \
     rm -rf apps/web/.next/standalone/node_modules/typescript \

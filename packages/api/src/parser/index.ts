@@ -9,6 +9,10 @@ import {
 } from "@norish/api/parser/jsonld";
 import { tryExtractRecipeFromMicrodata } from "@norish/api/parser/microdata";
 import {
+  isStreetKitchenUrl,
+  tryExtractRecipeFromStreetKitchen,
+} from "@norish/api/parser/sites/streetkitchen";
+import {
   getContentIndicators,
   isAIEnabled,
   isVideoParsingEnabled,
@@ -105,6 +109,17 @@ async function tryStructuredParsers(
   html: string,
   recipeId: string
 ): Promise<FullRecipeInsertDTO | null> {
+  // Site-specific parsers run first — they have access to structured data
+  // that generic JSON-LD / microdata parsers cannot reach.
+  if (isStreetKitchenUrl(url)) {
+    log.info({ url }, "Using streetkitchen.hu custom parser");
+    const skParsed = await tryExtractRecipeFromStreetKitchen(url, html, recipeId);
+
+    if (hasValidRecipeData(skParsed)) return skParsed;
+
+    log.warn({ url }, "streetkitchen.hu custom parser did not produce valid data, falling through");
+  }
+
   const jsonLdParsed = await tryExtractRecipeFromJsonLd(url, html, recipeId);
 
   if (hasValidRecipeData(jsonLdParsed)) return jsonLdParsed;

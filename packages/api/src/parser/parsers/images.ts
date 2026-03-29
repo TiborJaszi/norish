@@ -6,7 +6,6 @@
 
 import * as cheerio from "cheerio";
 import { downloadAllImagesFromJsonLd } from "@norish/shared-server/media/storage";
-import { MAX_RECIPE_IMAGES } from "@norish/shared/contracts/zod";
 
 export interface ParsedImage {
   image: string;
@@ -110,6 +109,14 @@ export function extractImageCandidates(html: string, pageUrl?: string): string[]
     if (normalized) {
       urls.add(normalized);
     }
+  }
+
+  // If og:image / twitter:image were found, trust them — they are explicitly
+  // chosen by the site owner and are always the correct recipe photo.
+  // Skip the scored HTML <img> pass entirely to avoid picking up thumbnails
+  // of related recipes, ads, or other off-topic images.
+  if (urls.size > 0) {
+    return [...urls];
   }
 
   const candidates: { src: string; score: number }[] = [];
@@ -216,14 +223,14 @@ export async function parseImages(
       const downloaded = await downloadAllImagesFromJsonLd(
         remotePaths,
         recipeId,
-        MAX_RECIPE_IMAGES - localPaths.length
+        1 // Only download the single best (largest) image
       );
 
       downloadedImages.push(...downloaded);
     }
   } else {
-    // Remote URLs - download them
-    downloadedImages = await downloadAllImagesFromJsonLd(imageField, recipeId, MAX_RECIPE_IMAGES);
+    // Remote URLs - download them (largest/best only)
+    downloadedImages = await downloadAllImagesFromJsonLd(imageField, recipeId, 1);
   }
 
   // Build images array with order

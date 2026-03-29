@@ -1,0 +1,57 @@
+{
+  "page": {
+    "title": "Naptár"
+  },
+  "mobile": {
+    "today": "Ma",
+    "scrollToToday": "Ugrás a mai naphoz"
+  },
+  "editNote": {
+    "title": "Megjegyzés szerkesztése",
+    "noteLabel": "Megjegyzés",
+    "notePlaceholder": "Megjegyzés bevitele...",
+    "date": "Dátum",
+    "slot": "Időrés"
+  },
+  "navigation": {
+    "previousMonth": "Előző hónap",
+    "nextMonth": "Következő hónap",
+    "prev": "Előző",
+    "next": "Következő"
+  },
+  "weekdays": {
+    "mon": "Hé",
+    "tue": "Ke",
+    "wed": "Sze",
+    "thu": "Cs",
+    "fri": "Pé",
+    "sat": "Szo",
+    "sun": "Va"
+  },
+  "timeline": {
+    "noItems": "Nincs tervezett elem",
+    "goToRecipe": "Ugrás a recepthez",
+    "addItem": "Elem hozzáadása",
+    "untitled": "Cím nélkül",
+    "serving": "adag",
+    "servings": "adag",
+    "noImage": "Nincs kép",
+    "recipe": "Recept",
+    "note": "Megjegyzés"
+  },
+  "editPlannedRecipe": {
+    "title": "Tervezett recept szerkesztése",
+    "date": "Dátum",
+    "slot": "Időrés"
+  },
+  "panel": {
+    "addToCalendar": "Hozzáadás a naptárhoz",
+    "addRecipe": "Recept hozzáadása",
+    "noDaysAvailable": "Nincs elérhető nap.",
+    "searchPlaceholder": "Receptek keresése vagy megjegyzések hozzáadása...",
+    "addNote": "Megjegyzés hozzáadása: {input}",
+    "randomRecipe": "Véletlenszerű recept",
+    "noRecipesFound": "Nem találhatók receptek.",
+    "failedToLoadRecipes": "Nem sikerült betölteni a recepteket."
+  }
+}

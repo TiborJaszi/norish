@@ -1,0 +1,223 @@
+{
+  "dashboard": {
+    "title": "Összes recept",
+    "searchPlaceholder": "Recept keresése vagy hozzáadása...",
+    "searchRecipesPlaceholder": "Receptek keresése...",
+    "recipeCount": "{count, plural, one {# recept} other {# recept}}",
+    "addRecipe": "Recept hozzáadása",
+    "importFromUrl": "URL",
+    "importFromPaste": "Beillesztés",
+    "importFromImage": "Kép",
+    "searchFields": {
+      "title": "Cím",
+      "description": "Leírás",
+      "ingredients": "Hozzávalók",
+      "steps": "Lépések",
+      "tags": "Címkék"
+    }
+  },
+  "empty": {
+    "title": "A receptgyűjteményed vár",
+    "description": "Illessz be egy recept URL-t a fenti keresőmezőbe, és nézd meg a varázslat.",
+    "noResults": "Nem találhatók receptek",
+    "noResultsHint": "Próbáld meg módosítani vagy törölni a szűrőket."
+  },
+  "card": {
+    "noImage": "Nincs elérhető kép",
+    "viewGroceries": "Bevásárlólista megtekintése",
+    "addToCalendar": "Hozzáadás a naptárhoz",
+    "deleteRecipe": "Recept törlése"
+  },
+  "detail": {
+    "backToRecipes": "Vissza a receptekhez",
+    "viewOriginal": "Eredeti recept megtekintése",
+    "ingredients": "Hozzávalók",
+    "steps": "Lépések",
+    "notes": "Megjegyzések",
+    "addToGroceries": "Hozzáadás a bevásárlólistához",
+    "ratingPrompt": "Mit gondoltál erről a receptről?",
+    "notFound": "A recept nem található",
+    "notFoundMessage": "Ez a recept nem létezik, vagy nincs jogosultságod megtekinteni.",
+    "prep": "előkészítés",
+    "total": "összesen",
+    "planMeal": "Étkezés tervezése",
+    "recipeActions": "Recept műveletek",
+    "instructions": "Utasítások",
+    "cook": "Főzés",
+    "switchToDecimal": "Tizedes megjelenítése",
+    "switchToFraction": "Törtszám megjelenítése"
+  },
+  "actions": {
+    "plan": "Tervezés",
+    "groceries": "Bevásárlólista",
+    "edit": "Szerkesztés",
+    "delete": "Törlés",
+    "share": "Megosztás",
+    "visitOriginal": "Eredeti recept meglátogatása",
+    "addToCalendar": "Hozzáadás a naptárhoz",
+    "autoTag": "Automatikus címkézés",
+    "autoTagging": "Címkék generálása...",
+    "autoCategorize": "Automatikus kategorizálás",
+    "detectAllergies": "Allergiák felismerése",
+    "detectingAllergies": "Allergiák felismerése...",
+    "estimateNutrition": "Tápértékek becslése",
+    "estimatingNutrition": "Tápértékek becslése...",
+    "screenOn": "Képernyő bekapcsolva",
+    "keepScreenOn": "Képernyő ébren tartása",
+    "actionsLabel": "Műveletek"
+  },
+  "convert": {
+    "ariaLabel": "Mértékegység-rendszer konvertálása",
+    "toMetric": "Átalakítás metrikusra",
+    "toUS": "Átalakítás US mértékre"
+  },
+  "deleteModal": {
+    "title": "Recept törlése",
+    "confirmMessage": "Biztosan törölni szeretnéd: „{recipeName}"?",
+    "warning": "Ez a művelet nem vonható vissza."
+  },
+  "form": {
+    "createTitle": "Recept létrehozása",
+    "editTitle": "Recept szerkesztése",
+    "createDescription": "Adj hozzá egy új receptet a gyűjteményedhez",
+    "editDescription": "Frissítsd a recept részleteit",
+    "initializingForm": "Űrlap inicializálása...",
+    "photo": "Fotó",
+    "basicInfo": "Alapinformációk",
+    "ingredients": "Hozzávalók",
+    "instructions": "Utasítások",
+    "tags": "Címkék",
+    "nutrition": "Tápértékek",
+    "nutritionPerServing": "(adagonként, opcionális)",
+    "details": "Részletek",
+    "additionalInfo": "További információk",
+    "recipeName": "Recept neve",
+    "recipeNamePlaceholder": "pl. Csokis keksz",
+    "description": "Leírás",
+    "descriptionPlaceholder": "Rövid leírás arról, mi teszi különlegessé ezt a receptet...",
+    "notes": "Megjegyzések",
+    "notesPlaceholder": "Adj hozzá előkészítési megjegyzéseket, módosításokat vagy tálalási tippeket ehhez a recepthez...",
+    "ingredientsHelp": "Írd be a hozzávalókat, például „2 csésze liszt" – automatikusan feldolgozzuk a mennyiségeket és az egységeket.",
+    "instructionsHelp": "Írj egyértelmű lépésenkénti utasításokat. Nyomj Entert a következő lépéshez.",
+    "tagsHelp": "Írj be címkéket, és kattints a javaslatokra a hozzáadáshoz. A kiválasztott címkék kékek, az új címkéknek szaggatott szegélyük van.",
+    "tagsAndCategories": "Címkék és kategóriák",
+    "categoriesHelp": "Válaszd ki az étkezési kategóriákat ehhez a recepthez.",
+    "category": {
+      "breakfast": "Reggeli",
+      "lunch": "Ebéd",
+      "dinner": "Vacsora",
+      "snack": "Nassolnivaló"
+    },
+    "calories": "Kalória",
+    "fat": "Zsír (g)",
+    "carbs": "Szénhidrát (g)",
+    "protein": "Fehérje (g)",
+    "servings": "Adagok",
+    "cookingTimes": "Főzési idők",
+    "optional": "(opcionális)",
+    "sourceUrl": "Forrás URL",
+    "sourceUrlPlaceholder": "https://example.com/recept",
+    "measurementSystemNote": "Automatikusan felismerjük a mértékegység-rendszert a hozzávalókból, de felülírhatod itt.",
+    "measurementSystemEditNote": " Megjegyzés: Ez frissíti a rendszer feliratát, de nem konvertálja az egységeket. Mentés után használd az Átalakítás műveletet.",
+    "createRecipe": "Recept létrehozása",
+    "saveChanges": "Változások mentése",
+    "uploading": "Feltöltés...",
+    "clickToUpload": "Kattints a feltöltéshez, vagy húzd ide",
+    "pasteToUpload": "a beillesztéshez",
+    "imageFormats": "PNG, JPG, WEBP, maximum 5 MB"
+  },
+  "gallery": {
+    "addImage": "Kép hozzáadása",
+    "uploading": "Feltöltés...",
+    "uploadFailed": "A feltöltés sikertelen",
+    "dragToReorder": "Húzd az átrendezéshez",
+    "maxImagesReached": "Maximum {max} kép engedélyezett",
+    "maxVideosReached": "Maximum {max} videó engedélyezett",
+    "invalidFileType": "Érvénytelen fájltípus"
+  },
+  "carousel": {
+    "noImageAvailable": "Nincs elérhető kép",
+    "noMediaAvailable": "Nincs elérhető médiatartalom",
+    "videoPlayer": {
+      "mute": "Némítás",
+      "unmute": "Hang bekapcsolása",
+      "fullscreen": "Teljes képernyő",
+      "exitFullscreen": "Kilépés a teljes képernyőből"
+    }
+  },
+  "validation": {
+    "nameRequired": "A recept neve kötelező",
+    "ingredientsRequired": "Legalább egy hozzávaló szükséges",
+    "stepsRequired": "Legalább egy lépés szükséges",
+    "servingsMin": "Az adagok száma legalább 1 kell legyen"
+  },
+  "nutrition": {
+    "title": "Tápértékek",
+    "calories": "Kalória",
+    "fat": "Zsír",
+    "carbs": "Szénhidrát",
+    "protein": "Fehérje",
+    "showingPortions": "{count} {count, plural, one {adag} other {adag}} értékeinek megjelenítése",
+    "noInfo": "Nincs elérhető tápértékinformáció",
+    "estimateWithAI": "Becslés AI-jal"
+  },
+  "measurementSystem": {
+    "label": "Mértékegység-rendszer",
+    "detected": "Felismert: {system}",
+    "metric": "Metrikus",
+    "us": "US"
+  },
+  "timeInputs": {
+    "prep": "Előkészítés",
+    "cook": "Főzés",
+    "total": "Összesen"
+  },
+  "stepInput": {
+    "stepPlaceholder": "{number}. lépés: Írd le a lépést...",
+    "stepPlaceholderShort": "{number}. lépés"
+  },
+  "ingredientInput": {
+    "placeholder": "pl. 2 csésze liszt"
+  },
+  "wakeLock": {
+    "keepScreenOn": "Képernyő ébren tartása",
+    "notSupported": "A képernyő ébren tartása nem támogatott ebben a böngészőben",
+    "activeTooltip": "A képernyő ébren marad főzés közben",
+    "inactiveTooltip": "Tartsd ébren a képernyőt a lépések követése közben",
+    "ariaLabel": "Képernyő ébren tartása"
+  },
+  "toasts": {
+    "processingBoth": "Címkék és allergiák feldolgozása",
+    "processingTags": "Címkék generálása",
+    "processingAllergies": "Allergiák felismerése",
+    "bothComplete": "Címkék és allergiák frissítve",
+    "tagsComplete": "Címkék generálva",
+    "allergiesComplete": "Allergiák felismerve",
+    "imported": "Recept importálva",
+    "converted": "Mértékegységek konvertálva",
+    "convertedDescription": "A recept {system} egységekre lett konvertálva",
+    "failed": "A recept művelete sikertelen",
+    "failedDescription": "Valami hiba történt a recept feldolgozása során. A technikai részletekért ellenőrizd a böngésző konzolját.",
+    "batchImported": "Receptek importálva",
+    "batchImportedDescription": "{count} recept importálva az archívumból",
+    "view": "Megtekintés",
+    "open": "Megnyitás"
+  },
+  "tags": {
+    "panel": {
+      "editTitle": "Címke szerkesztése",
+      "editPlaceholder": "Add meg a címke nevét...",
+      "duplicateTag": "Ez a címke már létezik"
+    }
+  },
+  "cookMode": {
+    "steps": "Lépések",
+    "ingredients": "Hozzávalók",
+    "servings": "Adagok",
+    "serving": "{count, plural, one {# adag} other {# adag}}",
+    "stepCounter": "{current} / {total}",
+    "swipeSteps": "Húzd a lépések közötti navigáláshoz",
+    "swipeIngredients": "Húzd balra a hozzávalókhoz",
+    "swipeBackToSteps": "Húzd jobbra a lépésekhez"
+  }
+}

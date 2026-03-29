@@ -1,10 +1,4 @@
-name: Release Build, Tag, and Publish Docker
-
-env:
-  NODE_ENV: production
-  DATABASE_URL: postgres://ci-user:ci-password@localhost:5432/ci-db
-  MASTER_KEY: test-master-key
-  SKIP_ENV_VALIDATION: "1"
+name: Build and Publish Docker
 
 on:
   push:
@@ -16,76 +10,15 @@ concurrency:
   cancel-in-progress: true
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   release:
-    name: Release Build
+    name: Build and Push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Setup toolchain and install dependencies
-        uses: ./tooling/github/setup
-
-      - name: Run tests
-        run: pnpm run test:run
-
-      - name: Build production
-        run: pnpm run build
-
-      - name: Read version from package.json
-        id: read_version
-        run: |
-          VERSION=$(node -p "require('./package.json').version")
-          echo "version=$VERSION" >> $GITHUB_OUTPUT
-
-      - name: Compute tag name
-        id: compute_tag
-        run: |
-          TAG="v${{ steps.read_version.outputs.version }}"
-          echo "tag=$TAG" >> $GITHUB_OUTPUT
-
-      - name: Fetch tags
-        run: git fetch --tags --force
-
-      - name: Check if tag exists
-        id: check_tag
-        run: |
-          TAG="${{ steps.compute_tag.outputs.tag }}"
-          if git show-ref --tags --verify --quiet "refs/tags/$TAG"; then
-            echo "exists=true" >> $GITHUB_OUTPUT
-          else
-            echo "exists=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Configure git user
-        if: steps.check_tag.outputs.exists == 'false'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Create and push tag
-        if: steps.check_tag.outputs.exists == 'false'
-        run: |
-          TAG="${{ steps.compute_tag.outputs.tag }}"
-          if git ls-remote --exit-code --tags origin "refs/tags/$TAG" > /dev/null; then
-            echo "Tag $TAG already exists on origin; skipping tag creation"
-            exit 0
-          fi
-          git tag "$TAG"
-          git push origin "refs/tags/$TAG"
-
-      - name: Set image tags
-        id: image_tags
-        run: |
-          VERSION_TAG="${{ steps.compute_tag.outputs.tag }}"
-          LATEST_TAG="latest"
-          echo "version_tag=$VERSION_TAG" >> $GITHUB_OUTPUT
-          echo "latest_tag=$LATEST_TAG" >> $GITHUB_OUTPUT
 
       - name: Free up disk space
         run: |
@@ -94,7 +27,6 @@ jobs:
           sudo rm -rf /opt/ghc
           sudo rm -rf /opt/hostedtoolcache/CodeQL
           sudo docker system prune -af
-          df -h
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -109,7 +41,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push Docker images
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
@@ -118,17 +50,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           cache-from: type=gha
           cache-to: type=gha,mode=max
-          tags: |
-            docker.io/3g0n/norish:${{ steps.image_tags.outputs.version_tag }}
-            docker.io/3g0n/norish:${{ steps.image_tags.outputs.latest_tag }}
-
-      - name: Create GitHub Release
-        if: steps.check_tag.outputs.exists == 'false'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          TAG="${{ steps.compute_tag.outputs.tag }}"
-          gh release create "$TAG" \
-            --title "$TAG" \
-            --generate-notes \
-            --latest
+          tags: docker.io/3g0n/norish:latest

@@ -55,9 +55,8 @@ jobs:
           cache-to: type=gha,mode=max
           tags: docker.io/3g0n/norish:latest
 
-      - name: Notify Watchtower to pull latest image
-        if: ${{ secrets.WATCHTOWER_URL != '' }}
+      - name: Trigger Watchtower update
         run: |
-          curl -sf -X POST "${{ secrets.WATCHTOWER_URL }}/v1/update" \
+          curl -s -X POST \
             -H "Authorization: Bearer ${{ secrets.WATCHTOWER_TOKEN }}" \
-            || echo "Watchtower notification failed (non-fatal)"
+            https://watchtower.ha.ceges.website/v1/update

@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Schritt {number}"
   },
   "ingredientInput": {
-    "placeholder": "z.B. 2 Tassen Mehl"
+    "placeholder": "z.B. 2 Tassen Mehl",
+    "addSectionHeader": "Abschnittsüberschrift hinzufügen",
+    "sectionHeaderPlaceholder": "Abschnittsname (z. B. Basis, Sahne)"
   },
   "wakeLock": {
     "keepScreenOn": "Bildschirm aktiv halten",
@@ -210,7 +212,6 @@
       "duplicateTag": "Dieser Tag existiert bereits"
     }
   },
-
   "cookMode": {
     "steps": "Schritte",
     "ingredients": "Zutaten",

@@ -73,7 +73,7 @@
   },
   "deleteModal": {
     "title": "Recept törlése",
-    "confirmMessage": "Biztosan törölni szeretnéd: \u201e{recipeName}\u201d?",
+    "confirmMessage": "Biztosan törölni szeretnéd: „{recipeName}”?",
     "warning": "Ez a művelet nem vonható vissza."
   },
   "form": {
@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "{number}. lépés"
   },
   "ingredientInput": {
-    "placeholder": "pl. 2 csésze liszt"
+    "placeholder": "pl. 2 csésze liszt",
+    "addSectionHeader": "Szakaszcím hozzáadása",
+    "sectionHeaderPlaceholder": "Szakasz neve (pl. Alap, Krém)"
   },
   "wakeLock": {
     "keepScreenOn": "Képernyő ébren tartása",

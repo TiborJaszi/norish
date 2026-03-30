@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "{number} 단계"
   },
   "ingredientInput": {
-    "placeholder": "예: 밀가루 2컵"
+    "placeholder": "예: 밀가루 2컵",
+    "addSectionHeader": "섹션 헤더 추가",
+    "sectionHeaderPlaceholder": "섹션 이름 (예: 베이스, 크림)"
   },
   "wakeLock": {
     "keepScreenOn": "화면 켜짐 유지",
@@ -210,7 +212,6 @@
       "duplicateTag": "이 태그는 이미 존재합니다."
     }
   },
-
   "cookMode": {
     "steps": "단계",
     "ingredients": "재료",

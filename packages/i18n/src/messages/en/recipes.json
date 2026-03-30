@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Step {number}"
   },
   "ingredientInput": {
-    "placeholder": "e.g., 2 cups flour"
+    "placeholder": "e.g., 2 cups flour",
+    "addSectionHeader": "Add section header",
+    "sectionHeaderPlaceholder": "Section name (e.g., Base, Cream)"
   },
   "wakeLock": {
     "keepScreenOn": "Keep Screen on",

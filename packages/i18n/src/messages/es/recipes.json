@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Paso {number}"
   },
   "ingredientInput": {
-    "placeholder": "p. ej., 400 g harina"
+    "placeholder": "p. ej., 400 g harina",
+    "addSectionHeader": "Agregar encabezado de sección",
+    "sectionHeaderPlaceholder": "Nombre de la sección (p. ej., Base, Crema)"
   },
   "wakeLock": {
     "keepScreenOn": "Mantener la pantalla encendida",
@@ -210,7 +212,6 @@
       "duplicateTag": "Esta etiqueta ya existe"
     }
   },
-
   "cookMode": {
     "steps": "Pasos",
     "ingredients": "Ingredientes",

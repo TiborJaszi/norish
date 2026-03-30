@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Шаг {number}"
   },
   "ingredientInput": {
-    "placeholder": "например, 2 стакана муки"
+    "placeholder": "например, 2 стакана муки",
+    "addSectionHeader": "Добавить заголовок раздела",
+    "sectionHeaderPlaceholder": "Название раздела (напр., Основа, Крем)"
   },
   "wakeLock": {
     "keepScreenOn": "Не выключать экран",
@@ -210,7 +212,6 @@
       "duplicateTag": "Такой тег уже существует"
     }
   },
-
   "cookMode": {
     "steps": "Шаги",
     "ingredients": "Ингредиенты",

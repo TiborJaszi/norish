@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useRef, useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
+import { Bars3Icon, HashtagIcon, XMarkIcon } from "@heroicons/react/16/solid";
 import { Button } from "@heroui/react";
 import { Reorder, useDragControls } from "motion/react";
 import { useTranslations } from "next-intl";
@@ -73,6 +73,11 @@ export default function IngredientInput({
       const trimmed = text.trim();
 
       if (!trimmed) return null;
+
+      // Section headings — store as-is, no unit/amount parsing
+      if (trimmed.startsWith("#")) {
+        return { ingredientName: trimmed, amount: null, unit: null, order, systemUsed };
+      }
 
       const parsed = parseIngredientWithDefaults(trimmed, units);
 
@@ -196,6 +201,21 @@ export default function IngredientInput({
     [debouncedParse]
   );
 
+  const handleAddSectionHeader = useCallback(() => {
+    const updated = [...items];
+    const insertAt =
+      updated.length > 0 && !updated[updated.length - 1].text.trim()
+        ? updated.length - 1
+        : updated.length;
+
+    updated.splice(insertAt, 0, createItem("# "));
+    setItems(updated);
+    debouncedParse(updated);
+    setTimeout(() => {
+      textareaRefs.current[insertAt]?.focus();
+    }, 0);
+  }, [items, debouncedParse]);
+
   // Calculate ingredient numbers (excluding headings)
   const getIngredientNumber = (index: number): number | null => {
     let num = 0;
@@ -211,32 +231,45 @@ export default function IngredientInput({
   };
 
   return (
-    <Reorder.Group
-      ref={dragConstraintsRef}
-      axis="y"
-      className="flex flex-col gap-2"
-      values={items}
-      onReorder={handleReorder}
-    >
-      {items.map((item, index) => (
-        <IngredientRow
-          key={item.id}
-          dragConstraintsRef={dragConstraintsRef}
-          index={index}
-          ingredientNumber={getIngredientNumber(index)}
-          ingredientPlaceholder={t("placeholder")}
-          isLast={index === items.length - 1}
-          item={item}
-          showRemove={items.length > 1 && !!item.text}
-          onBlur={() => handleBlur(index)}
-          onKeyDown={(e) =>
-            handleKeyDown(index, e as unknown as React.KeyboardEvent<HTMLInputElement>)
-          }
-          onRemove={() => handleRemove(index)}
-          onValueChange={(v) => handleInputChange(index, v)}
-        />
-      ))}
-    </Reorder.Group>
+    <div className="flex flex-col gap-2">
+      <Reorder.Group
+        ref={dragConstraintsRef}
+        axis="y"
+        className="flex flex-col gap-2"
+        values={items}
+        onReorder={handleReorder}
+      >
+        {items.map((item, index) => (
+          <IngredientRow
+            key={item.id}
+            dragConstraintsRef={dragConstraintsRef}
+            index={index}
+            ingredientNumber={getIngredientNumber(index)}
+            ingredientPlaceholder={t("placeholder")}
+            isHeading={item.text.trim().startsWith("#")}
+            isLast={index === items.length - 1}
+            item={item}
+            sectionHeaderPlaceholder={t("sectionHeaderPlaceholder")}
+            showRemove={items.length > 1 && !!item.text}
+            onBlur={() => handleBlur(index)}
+            onKeyDown={(e) =>
+              handleKeyDown(index, e as unknown as React.KeyboardEvent<HTMLInputElement>)
+            }
+            onRemove={() => handleRemove(index)}
+            onValueChange={(v) => handleInputChange(index, v)}
+          />
+        ))}
+      </Reorder.Group>
+      <Button
+        className="mt-1 self-start"
+        size="sm"
+        startContent={<HashtagIcon className="h-3.5 w-3.5" />}
+        variant="flat"
+        onPress={handleAddSectionHeader}
+      >
+        {t("addSectionHeader")}
+      </Button>
+    </div>
   );
 }
 
@@ -252,10 +285,12 @@ interface IngredientRowProps {
   item: IngredientItem;
   index: number;
   ingredientNumber: number | null;
+  isHeading: boolean;
   isLast: boolean;
   showRemove: boolean;
   dragConstraintsRef: React.RefObject<HTMLUListElement | null>;
   ingredientPlaceholder: string;
+  sectionHeaderPlaceholder: string;
   onValueChange: (value: string) => void;
   onKeyDown: (e: React.KeyboardEvent) => void;
   onBlur: () => void;
@@ -266,10 +301,12 @@ function IngredientRow({
   item,
   index,
   ingredientNumber,
+  isHeading,
   isLast,
   showRemove,
   dragConstraintsRef,
   ingredientPlaceholder,
+  sectionHeaderPlaceholder,
   onValueChange,
   onKeyDown,
   onBlur,
@@ -280,7 +317,7 @@ function IngredientRow({
 
   return (
     <Reorder.Item
-      className="flex items-start gap-2"
+      className={`flex items-start gap-2 ${isHeading ? "rounded-lg bg-default-100 dark:bg-default-50/10 px-1 py-0.5" : ""}`}
       drag={canDrag ? "y" : false}
       dragConstraints={dragConstraintsRef}
       dragControls={controls}
@@ -290,30 +327,33 @@ function IngredientRow({
       style={{ position: "relative" }}
       value={item}
     >
-      {/* Drag handle - only show for non-empty, non-last items */}
+      {/* Drag handle */}
       <div
         className={`flex h-10 w-6 flex-shrink-0 touch-none items-center justify-center ${
           !isLast && item.text ? "cursor-grab active:cursor-grabbing" : ""
         }`}
         onPointerDown={(e) => {
-          if (canDrag) {
-            controls.start(e);
-          }
+          if (canDrag) controls.start(e);
         }}
       >
         {canDrag ? <Bars3Icon className="text-default-400 h-4 w-4" /> : null}
       </div>
 
-      {/* Ingredient number */}
+      {/* Leading indicator: # icon for headings, number for ingredients */}
       <div className="text-default-500 flex h-10 w-6 flex-shrink-0 items-center justify-center font-medium">
-        {ingredientNumber !== null ? `${ingredientNumber}.` : ""}
+        {isHeading ? (
+          <HashtagIcon className="text-primary-400 h-4 w-4" />
+        ) : (
+          ingredientNumber !== null ? `${ingredientNumber}.` : ""
+        )}
       </div>
 
       {/* Input field */}
       <div className="flex-1">
         <SmartTextInput
+          classNames={isHeading ? { input: "font-semibold" } : undefined}
           minRows={1}
-          placeholder={index === 0 ? ingredientPlaceholder : ""}
+          placeholder={isHeading ? sectionHeaderPlaceholder : index === 0 ? ingredientPlaceholder : ""}
           value={item.text}
           onBlur={onBlur}
           onKeyDown={onKeyDown}

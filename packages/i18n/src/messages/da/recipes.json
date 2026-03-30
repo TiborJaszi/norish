@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Trin {number}"
   },
   "ingredientInput": {
-    "placeholder": "f.eks. 2 dl mel"
+    "placeholder": "f.eks. 2 dl mel",
+    "addSectionHeader": "Tilføj sektionsoverskrift",
+    "sectionHeaderPlaceholder": "Sektionsnavn (f.eks. Base, Creme)"
   },
   "wakeLock": {
     "keepScreenOn": "Hold skærm tændt",

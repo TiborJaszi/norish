@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Stap {number}"
   },
   "ingredientInput": {
-    "placeholder": "bijv. 2 kopjes bloem"
+    "placeholder": "bijv. 2 kopjes bloem",
+    "addSectionHeader": "Sectiekop toevoegen",
+    "sectionHeaderPlaceholder": "Sectienaam (bijv. Basis, Room)"
   },
   "wakeLock": {
     "keepScreenOn": "Scherm aan houden",
@@ -210,7 +212,6 @@
       "duplicateTag": "Deze tag bestaat al"
     }
   },
-
   "cookMode": {
     "steps": "Stappen",
     "ingredients": "Ingrediënten",

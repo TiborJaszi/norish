@@ -177,7 +177,9 @@
     "stepPlaceholderShort": "Étape {number}"
   },
   "ingredientInput": {
-    "placeholder": "ex. : 2 tasses de farine"
+    "placeholder": "ex. : 2 tasses de farine",
+    "addSectionHeader": "Ajouter un en-tête de section",
+    "sectionHeaderPlaceholder": "Nom de la section (ex. : Base, Crème)"
   },
   "wakeLock": {
     "keepScreenOn": "Garder l’écran allumé",
@@ -210,7 +212,6 @@
       "duplicateTag": "Ce tag existe déjà"
     }
   },
-
   "cookMode": {
     "steps": "Étapes",
     "ingredients": "Ingrédients",
